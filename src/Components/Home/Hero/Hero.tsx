@@ -67,10 +67,10 @@ const areas: {
 const Hero = () => {
   return (
     <div className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center">
-      {/* <div className="w-[1266px] h-[1266px] mx-auto top-[300px] absolute bg-gradient-to-b from-red-600/50 to-red-800/50 rounded-full blur-[250px]" /> */}
-      <div className="w-[822px] h-[822px] mx-auto top-[350px] absolute bg-gradient-to-b from-red-600 to-red-800 rounded-full blur-[200px]" />
+      <div className="w-[1266px] h-[1266px] mx-auto top-[300px] absolute bg-gradient-to-b from-red-600/50 to-red-800/50 rounded-full blur-[250px]" />
+      {/* <div className="w-[822px] h-[822px] mx-auto top-[350px] absolute bg-gradient-to-b from-red-600 to-red-800 rounded-full blur-[200px]" /> */}
       <img
-        src="/assets/Images/hero-blur1.png"
+        src="/assets/Images/hero-blur1.svg"
         alt=""
         className="absolute w-full h-full object-cover"
       />
@@ -78,18 +78,18 @@ const Hero = () => {
       <div className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10">
         <div className="w-full h-full absolute bg-red-600/30 rounded-full" />
         <img
-          className="object-cover scale-118 w-full h-full -mt-18 ml-4"
-          src="/assets/Images/moon.png"
+          className="object-cover z-10 scale-108 w-full h-full -mt-32 ml-4"
+          src="/assets/Images/moon.svg"
           alt="moon"
         />
       </div>
       <img
-        className="absolute z-20 w-full h-full object-cover"
+        className="absolute z-20 max-md:-bottom-10 h-screen w-screen overflow-hidden object-cover"
         src={"/assets/Images/trees-bg.png"}
       />
       <div className="top-0 absolute w-52">
         <img
-          src="/assets/Images/hanging-board.png"
+          src="/assets/Images/hanging-board.svg"
           className="z-20"
           alt="ground"
         />
@@ -99,18 +99,18 @@ const Hero = () => {
       </div>
       <img
         src="/assets/Images/mind-flayer1.png"
-        className="opacity-5 z-0 w-full top-5 h-full absolute object-cover"
+        className="opacity-4 z-0 w-full top-5 h-full absolute object-cover"
         alt=""
       />
       <img
-        src="/assets/Images/Infotsav25.png"
+        src="/assets/Images/Infotsav25.svg"
         className="z-20 bottom-30 scale-85 max-sm:bottom-50 absolute object-cover"
         alt=""
       />
-      <img src="/assets/Images/sign-board.png" className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10" alt="Sign Board" />
+      <img src="/assets/Images/sign-board.svg" className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10" alt="Sign Board" />
       <div className="absolute bottom-10 scale-150 right-[15%] z-30 w-48">
         <SvgImageMap
-          src="/assets/Images/sign-board.png"
+          src="/assets/Images/sign-board.svg"
           alt="Interactive Map"
           className="w-full h-auto"
           areas={areas}
