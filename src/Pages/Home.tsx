@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <div className="w-full h-[120px] bg-black" />
+      <div className="w-full max-sm:h-[20px] max-md:h-[80px] h-[120px] bg-black" />
       <AboutUs />
       <MainEvents />
       <IntroVideo />
