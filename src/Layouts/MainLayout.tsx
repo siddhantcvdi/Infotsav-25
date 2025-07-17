@@ -4,7 +4,7 @@ type MainLayoutProps = {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <main className="container mx-auto text-white">
+    <main className="max-w-[1500px] mx-auto text-white">
       {children}
     </main>
   )
