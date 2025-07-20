@@ -84,7 +84,7 @@ const Hero = () => {
         />
       </div>
       <img
-        className="absolute z-20 max-md:-bottom-10 h-screen w-screen overflow-hidden object-cover"
+        className="absolute z-20 max-md:-bottom-10 h-full w-full overflow-hidden object-cover"
         src={"/assets/Images/trees-bg.png"}
       />
       <div className="top-0 absolute w-52">
