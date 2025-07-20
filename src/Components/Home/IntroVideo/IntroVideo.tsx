@@ -2,7 +2,7 @@ import VideoHolder from '/assets/Images/Home/Video/VideoHolder.png';
 
 const IntroVideo = () => {
     return (
-        <div className="w-full min-h-screen relative bg-black overflow-hidden flex items-center justify-center">
+        <div className="flex-col w-full h-dvh max-h-[800px] relative bg-black overflow-hidden flex items-center justify-center">
             {/* Background gradient blur - positioned like Figma */}
             <div className="absolute left-[-9%] top-[77%] w-[118%] h-[118%] bg-gradient-to-b from-red-600/50 to-red-800/50 rounded-full blur-[200px] md:blur-[400px]" />
 
@@ -34,7 +34,8 @@ const IntroVideo = () => {
             </div>
 
             {/* Bottom shadow bar */}
-            <div className="absolute bottom-0 left-0 w-full h-16 sm:h-20 bg-stone-950 shadow-[inset_0px_12px_20px_0px_rgba(0,0,0,0.50)]" />
+            {/* <div className="bottom-0 left-0 w-full h-16 sm:h-20 bg-stone-950 shadow-[inset_0px_12px_20px_0px_rgba(0,0,0,0.50)]" /> */}
+            <div className="w-[1200px] h-20 bg-stone-950 shadow-[inset_0px_12px_20px_0px_rgba(0,0,0,0.50)]" />
         </div>
     );
 };
