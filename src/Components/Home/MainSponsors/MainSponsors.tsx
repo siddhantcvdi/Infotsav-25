@@ -47,8 +47,8 @@ const MainSponsors: React.FC = () => {
 
       {/* Floating circles (Eyes) */}
       <div className="flex justify-center gap-12 mt-10">
-        <div className="w-36 h-36 bg-white rounded-full" />
-        <div className="w-36 h-36 bg-white rounded-full" />
+        <div className="w-[13%] aspect-square bg-white rounded-full" />
+        <div className="w-[13%] aspect-square bg-white rounded-full" />
       </div>
 
       {/* Rope SVG */}
@@ -71,7 +71,7 @@ const MainSponsors: React.FC = () => {
       {positions.map((pos, idx) => (
         <div
           key={idx}
-          className="absolute flex flex-col items-center z-10"
+          className="absolute flex flex-col w-full items-center z-10"
           style={{
             left: `${pos.x}px`,
             top: `${pos.y}px`,

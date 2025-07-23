@@ -1,6 +1,6 @@
 const HangingSponsor = () => {
   return (
-    <div className="w-32 h-32 bg-white rounded-full" />
+    <div className="w-[11%] aspect-square bg-white rounded-full" />
   )
 }
 
