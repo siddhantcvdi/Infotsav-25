@@ -1,28 +1,85 @@
 import React, { useEffect, useRef, useState } from "react";
 import HangingSponsor from "./HangingSponsor";
 
-const MainSponsors: React.FC = () => {
-  const pathRef = useRef<SVGPathElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-  const [positions, setPositions] = useState<{ x: number; y: number }[]>([]);
+// Mock HangingSponsor component since it's not available
+// const HangingSponsor = () => (
+//   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
+//     <span className="text-xs text-black font-bold"></span>
+//   </div>
+// );
 
-  const SPONSOR_COUNT = 7;
+const MainSponsors: React.FC = () => {
+  const topPathRef = useRef<SVGPathElement>(null);
+  const bottomPathRef = useRef<SVGPathElement>(null);
+  const topSvgRef = useRef<SVGSVGElement>(null);
+  const bottomSvgRef = useRef<SVGSVGElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [topPositions, setTopPositions] = useState<{ x: number; y: number }[]>([]);
+  const [bottomPositions, setBottomPositions] = useState<{ x: number; y: number }[]>([]);
+  const [singleRopePositions, setSingleRopePositions] = useState<{ x: number; y: number }[]>([]);
+
+  const MOBILE_SPONSOR_COUNT = 3;
+  const DESKTOP_SPONSOR_COUNT = 7;
   const VIEWBOX_WIDTH = 1000;
   const VIEWBOX_HEIGHT = 500;
 
-  const updatePositions = () => {
-    const path = pathRef.current;
-    const svg = svgRef.current;
-    if (!path || !svg) return;
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768); // md breakpoint
+  };
 
-    const rect = svg.getBoundingClientRect(); // Actual rendered size
-    const pathLength = path.getTotalLength();
+  const updateMobilePositions = () => {
+    const topPath = topPathRef.current;
+    const bottomPath = bottomPathRef.current;
+    const topSvg = topSvgRef.current;
+    const bottomSvg = bottomSvgRef.current;
+    
+    if (!topPath || !bottomPath || !topSvg || !bottomSvg) return;
 
-    const hangingOffset = rect.height; // 7% of SVG height for rope drop
+    const topRect = topSvg.getBoundingClientRect();
+    const bottomRect = bottomSvg.getBoundingClientRect();
+    const topPathLength = topPath.getTotalLength();
+    const bottomPathLength = bottomPath.getTotalLength();
 
-    const newPositions = Array.from({ length: SPONSOR_COUNT }, (_, i) => {
-      const pct = (i + 1) / (SPONSOR_COUNT + 1);
-      const point = path.getPointAtLength(pathLength * pct);
+    const hangingOffset = 0; // Fixed offset for rope drop
+
+    // Top rope positions
+    const newTopPositions = Array.from({ length: MOBILE_SPONSOR_COUNT }, (_, i) => {
+      const pct = (i + 1) / (MOBILE_SPONSOR_COUNT + 1);
+      const point = topPath.getPointAtLength(topPathLength * pct);
+      
+      const x = (point.x / VIEWBOX_WIDTH) * topRect.width;
+      const y = (point.y / VIEWBOX_HEIGHT) * topRect.height + hangingOffset;
+      
+      return { x, y };
+    });
+
+    // Bottom rope positions
+    const newBottomPositions = Array.from({ length: MOBILE_SPONSOR_COUNT }, (_, i) => {
+      const pct = (i + 1) / (MOBILE_SPONSOR_COUNT + 1);
+      const point = bottomPath.getPointAtLength(bottomPathLength * pct);
+      
+      const x = (point.x / VIEWBOX_WIDTH) * bottomRect.width;
+      const y = (point.y / VIEWBOX_HEIGHT) * bottomRect.height + hangingOffset;
+      
+      return { x, y };
+    });
+
+    setTopPositions(newTopPositions);
+    setBottomPositions(newBottomPositions);
+  };
+
+  const updateDesktopPositions = () => {
+    const topPath = topPathRef.current;
+    const topSvg = topSvgRef.current;
+    if (!topPath || !topSvg) return;
+
+    const rect = topSvg.getBoundingClientRect();
+    const pathLength = topPath.getTotalLength();
+    const hangingOffset = rect.height;
+
+    const newPositions = Array.from({ length: DESKTOP_SPONSOR_COUNT }, (_, i) => {
+      const pct = (i + 1) / (DESKTOP_SPONSOR_COUNT + 1);
+      const point = topPath.getPointAtLength(pathLength * pct);
 
       const x = (point.x / VIEWBOX_WIDTH) * rect.width;
       const y = (point.y / VIEWBOX_HEIGHT) * rect.height + hangingOffset;
@@ -30,58 +87,152 @@ const MainSponsors: React.FC = () => {
       return { x, y };
     });
 
-    setPositions(newPositions);
+    setSingleRopePositions(newPositions);
+  };
+
+  const updatePositions = () => {
+    if (isMobile) {
+      updateMobilePositions();
+    } else {
+      updateDesktopPositions();
+    }
   };
 
   useEffect(() => {
-    updatePositions();
-    window.addEventListener("resize", updatePositions);
-    return () => window.removeEventListener("resize", updatePositions);
+    checkMobile();
+    const handleResize = () => {
+      checkMobile();
+    };
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    // Small delay to ensure refs are ready
+    const timer = setTimeout(updatePositions, 100);
+    window.addEventListener("resize", updatePositions);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", updatePositions);
+    };
+  }, [isMobile]);
 
   return (
     <section className="relative w-full h-screen max-h-[800px] bg-gradient-to-b from-black to-[#090928] text-white overflow-hidden">
-      <h2 className="text-7xl font-black font-cattedrale text-center pt-12">
+      <h2 className="text-7xl max-md:text-5xl max-sm:text-4xl font-cattedrale text-center pt-12">
         SPONSORS
       </h2>
 
-      {/* Floating circles (Eyes) */}
       <div className="flex justify-center gap-12 mt-10">
-        <div className="w-[13%] aspect-square bg-white rounded-full" />
-        <div className="w-[13%] aspect-square bg-white rounded-full" />
+        <div className="w-[13%] max-sm:w-[30%] max-md:w-[20%] aspect-square  bg-white/10 border-white/20 border-[3px] rounded-full" />
+        <div className="w-[13%] max-sm:w-[30%] max-md:w-[20%] aspect-square  bg-white/10 border-white/20 border-[3px] rounded-full" />
       </div>
 
-      {/* Rope SVG */}
-      <svg
-        ref={svgRef}
-        viewBox="0 0 1000 500"
-        preserveAspectRatio="none"
-        className="absolute top-[35%] left-0 w-full h-[35%] z-0"
-      >
-        <path
-          ref={pathRef}
-          d="M 0 150 Q 500 700 1000 150"
-          stroke="white"
-          strokeWidth={2}
-          fill="transparent"
-        />
-      </svg>
+      {/* Desktop View - Single Rope */}
+      {!isMobile && (
+        <>
+          <svg
+            ref={topSvgRef}
+            viewBox="0 0 1000 500"
+            preserveAspectRatio="none"
+            className="absolute top-[35%] left-0 w-full h-[35%] z-0"
+          >
+            <path
+              ref={topPathRef}
+              d="M 0 150 Q 500 700 1000 150"
+              stroke="white"
+              strokeWidth={2}
+              fill="transparent"
+            />
+          </svg>
 
-      {/* Hanging sponsor logos */}
-      {positions.map((pos, idx) => (
-        <div
-          key={idx}
-          className="absolute flex flex-col w-full items-center z-10"
-          style={{
-            left: `${pos.x}px`,
-            top: `${pos.y}px`,
-            transform: "translateX(-50%)",
-          }}
-        >
-          <div className="w-0.5 h-8 bg-white" />
-          <HangingSponsor/>
-        </div>
-      ))}
+          {singleRopePositions.map((pos, idx) => (
+            <div
+              key={`desktop-${idx}`}
+              className="absolute flex flex-col w-full items-center z-10"
+              style={{
+                left: `${pos.x}px`,
+                top: `${pos.y}px`,
+                transform: "translateX(-50%)",
+              }}
+            >
+              <div className="w-0.5 h-8 bg-white" />
+              <HangingSponsor />
+            </div>
+          ))}
+        </>
+      )}
+
+      {/* Mobile View - Double Ropes */}
+      {isMobile && (
+        <>
+          {/* Top Rope */}
+          <svg
+            ref={topSvgRef}
+            viewBox="0 0 1000 500"
+            preserveAspectRatio="none"
+            className="absolute top-[30%] left-0 w-full h-[20%] z-0"
+          >
+            <path
+              ref={topPathRef}
+              d="M 0 150 Q 500 400 1000 150"
+              stroke="white"
+              strokeWidth={2}
+              fill="transparent"
+            />
+          </svg>
+
+          {/* Bottom Rope */}
+          <svg
+            ref={bottomSvgRef}
+            viewBox="0 0 1000 500"
+            preserveAspectRatio="none"
+            className="absolute top-[55%] left-0 w-full h-[20%] z-0"
+          >
+            <path
+              ref={bottomPathRef}
+              d="M 0 150 Q 500 400 1000 150"
+              stroke="white"
+              strokeWidth={2}
+              fill="transparent"
+            />
+          </svg>
+
+          {/* Top rope sponsors */}
+          {topPositions.map((pos, idx) => (
+            <div
+              key={`top-${idx}`}
+              className="absolute flex flex-col w-full items-center z-10"
+              style={{
+                left: `${pos.x}px`,
+                top: `${pos.y + window.innerHeight * 0.30}px`, // Offset by top rope position
+                transform: "translateX(-50%)",
+              }}
+            >
+              <div className="w-0.5 h-6 bg-white" />
+              <HangingSponsor />
+            </div>
+          ))}
+
+          {/* Bottom rope sponsors */}
+          {bottomPositions.map((pos, idx) => (
+            <div
+              key={`bottom-${idx}`}
+              className="absolute flex flex-col w-full items-center z-10"
+              style={{
+                left: `${pos.x}px`,
+                top: `${pos.y + window.innerHeight * 0.55}px`, // Offset by bottom rope position
+                transform: "translateX(-50%)",
+              }}
+            >
+              <div className="w-0.5 h-6 bg-white" />
+              <HangingSponsor />
+            </div>
+          ))}
+        </>
+      )}
     </section>
   );
 };
