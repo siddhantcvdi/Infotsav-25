@@ -1,13 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import HangingSponsor from "./HangingSponsor";
 
-// Mock HangingSponsor component since it's not available
-// const HangingSponsor = () => (
-//   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-full border-2 border-gray-300 flex items-center justify-center">
-//     <span className="text-xs text-black font-bold"></span>
-//   </div>
-// );
-
 const MainSponsors: React.FC = () => {
   const topPathRef = useRef<SVGPathElement>(null);
   const bottomPathRef = useRef<SVGPathElement>(null);
@@ -32,35 +25,35 @@ const MainSponsors: React.FC = () => {
     const bottomPath = bottomPathRef.current;
     const topSvg = topSvgRef.current;
     const bottomSvg = bottomSvgRef.current;
-    
+
     if (!topPath || !bottomPath || !topSvg || !bottomSvg) return;
 
     const topRect = topSvg.getBoundingClientRect();
     const bottomRect = bottomSvg.getBoundingClientRect();
     const topPathLength = topPath.getTotalLength();
     const bottomPathLength = bottomPath.getTotalLength();
-
-    const hangingOffset = 0; // Fixed offset for rope drop
+    const hangingOffset = 0;
+    const margin = 0.15;
 
     // Top rope positions
     const newTopPositions = Array.from({ length: MOBILE_SPONSOR_COUNT }, (_, i) => {
-      const pct = (i + 1) / (MOBILE_SPONSOR_COUNT + 1);
+      const pct = margin + (i / (MOBILE_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
       const point = topPath.getPointAtLength(topPathLength * pct);
-      
+
       const x = (point.x / VIEWBOX_WIDTH) * topRect.width;
       const y = (point.y / VIEWBOX_HEIGHT) * topRect.height + hangingOffset;
-      
+
       return { x, y };
     });
 
     // Bottom rope positions
     const newBottomPositions = Array.from({ length: MOBILE_SPONSOR_COUNT }, (_, i) => {
-      const pct = (i + 1) / (MOBILE_SPONSOR_COUNT + 1);
+      const pct = margin + (i / (MOBILE_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
       const point = bottomPath.getPointAtLength(bottomPathLength * pct);
-      
+
       const x = (point.x / VIEWBOX_WIDTH) * bottomRect.width;
       const y = (point.y / VIEWBOX_HEIGHT) * bottomRect.height + hangingOffset;
-      
+
       return { x, y };
     });
 
@@ -76,9 +69,10 @@ const MainSponsors: React.FC = () => {
     const rect = topSvg.getBoundingClientRect();
     const pathLength = topPath.getTotalLength();
     const hangingOffset = rect.height;
+    const margin = 0.07;
 
     const newPositions = Array.from({ length: DESKTOP_SPONSOR_COUNT }, (_, i) => {
-      const pct = (i + 1) / (DESKTOP_SPONSOR_COUNT + 1);
+      const pct = margin + (i / (DESKTOP_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
       const point = topPath.getPointAtLength(pathLength * pct);
 
       const x = (point.x / VIEWBOX_WIDTH) * rect.width;
@@ -100,19 +94,14 @@ const MainSponsors: React.FC = () => {
 
   useEffect(() => {
     checkMobile();
-    const handleResize = () => {
-      checkMobile();
-    };
-    
+    const handleResize = () => checkMobile();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    // Small delay to ensure refs are ready
     const timer = setTimeout(updatePositions, 100);
     window.addEventListener("resize", updatePositions);
-    
     return () => {
       clearTimeout(timer);
       window.removeEventListener("resize", updatePositions);
@@ -125,6 +114,7 @@ const MainSponsors: React.FC = () => {
         SPONSORS
       </h2>
 
+      {/* Eyes */}
       <div className="flex justify-center gap-12 mt-10">
         <div className="w-[13%] max-sm:w-[30%] max-md:w-[20%] aspect-square  bg-white/10 border-white/20 border-[3px] rounded-full" />
         <div className="w-[13%] max-sm:w-[30%] max-md:w-[20%] aspect-square  bg-white/10 border-white/20 border-[3px] rounded-full" />
@@ -207,7 +197,7 @@ const MainSponsors: React.FC = () => {
               className="absolute flex flex-col w-full items-center z-10"
               style={{
                 left: `${pos.x}px`,
-                top: `${pos.y + window.innerHeight * 0.30}px`, // Offset by top rope position
+                top: `${pos.y + window.innerHeight * 0.30}px`,
                 transform: "translateX(-50%)",
               }}
             >
@@ -223,7 +213,7 @@ const MainSponsors: React.FC = () => {
               className="absolute flex flex-col w-full items-center z-10"
               style={{
                 left: `${pos.x}px`,
-                top: `${pos.y + window.innerHeight * 0.55}px`, // Offset by bottom rope position
+                top: `${pos.y + window.innerHeight * 0.55}px`,
                 transform: "translateX(-50%)",
               }}
             >
