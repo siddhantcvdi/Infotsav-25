@@ -99,7 +99,7 @@ const Hero = () => {
       </div>
       <img
         src="/assets/Images/mind-flayer1.png"
-        className="opacity-4 z-0 w-full top-5 h-full absolute object-cover"
+        className="opacity-6 z-0 w-full top-5 h-full absolute object-cover"
         alt=""
       />
       <img
