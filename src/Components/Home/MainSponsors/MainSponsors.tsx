@@ -33,7 +33,7 @@ const MainSponsors: React.FC = () => {
     const topPathLength = topPath.getTotalLength();
     const bottomPathLength = bottomPath.getTotalLength();
     const hangingOffset = 0;
-    const margin = 0.15;
+    const margin = 0.17;
 
     // Top rope positions
     const newTopPositions = Array.from({ length: MOBILE_SPONSOR_COUNT }, (_, i) => {
@@ -110,7 +110,7 @@ const MainSponsors: React.FC = () => {
 
   return (
     <section className="relative w-full h-screen max-h-[800px] bg-gradient-to-b from-black to-[#090928] text-white overflow-hidden">
-      <h2 className="text-7xl max-md:text-5xl max-sm:text-4xl font-cattedrale text-center pt-12">
+      <h2 className="text-7xl max-md:text-5xl font-cattedrale text-center pt-12">
         SPONSORS
       </h2>
 
