@@ -12,7 +12,7 @@ const AboutUs = () => {
       <img
         src="/assets/Backgrounds/about-blur.png"
         alt="Blur Background"
-        className="absolute left-1/2 -translate-x-1/2 w-[1286px] h-[1286px] z-[5] pointer-events-none select-none"
+        className="absolute left-1/2 -translate-x-1/2 h-full w-full object-cover z-[5] pointer-events-none select-none"
         loading="lazy"
       />
       {/* Black Blur - half-circle at bottom */}
