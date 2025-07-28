@@ -5,7 +5,7 @@ const AboutUs = () => {
       <img
         src="/assets/Images/trees-bg.png"
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover z-[10] rotate-180"
+        className="absolute inset-0 w-full h-full object-cover z-[10] rotate-180 max-sm:-top-10"
         loading="lazy"
       />
       {/* Background Blur Image (Teal image instead of div gradient) */}
@@ -23,7 +23,7 @@ const AboutUs = () => {
 
       {/* Foreground Decorative Image */}
       <img
-        className="absolute w-40 h-64 left-[318px] top-[290px] origin-top-left -rotate-180 z-10"
+        className="absolute w-40 h-64 left-[318px] top-[290px] origin-top-left -rotate-180 z-10 max-sm:hidden"
         src="/assets/Images/Demogorgon.png"
         alt="Demogorgon"
         loading="lazy"

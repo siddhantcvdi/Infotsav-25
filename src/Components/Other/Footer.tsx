@@ -64,19 +64,16 @@ export default function Footer() {
                         <h3 className="text-white text-3xl md:text-4xl capitalize mb-6">
                             Contact Us
                         </h3>
-                        <div className="space-y-2 text-white text-base">
-                            <div className="flex gap-4">
-                                <span>Name A:</span>
+                        <div className="space-y-2 text-white text-base w-full ">
+                            <div className="flex gap-4 w-full ">
+                                <span>Samyak Choudhary:</span>
                                 <span>9999999999</span>
                             </div>
-                            <div className="flex gap-4">
-                                <span>Name B:</span>
+                            <div className="flex gap-4 ">
+                                <span>Shashank Gour:</span>
                                 <span>9999999999</span>
                             </div>
-                            <div className="flex gap-4">
-                                <span>Name C:</span>
-                                <span>9999999999</span>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
