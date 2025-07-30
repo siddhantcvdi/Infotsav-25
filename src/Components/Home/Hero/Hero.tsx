@@ -1,4 +1,6 @@
 import SvgImageMap from "./SvgImageMap";
+import { useMediaQuery } from "react-responsive";
+import useMobileMenuStore from "@/stores/MobileMenuStore";
 
 const areas: {
   name: string;
@@ -65,58 +67,74 @@ const areas: {
 ];
 
 const Hero = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const toggleMobileMenu = useMobileMenuStore((state) => state.toggleMobileMenu);
+  const handleMobileMenu = () => {
+    if (isMobile) {
+      toggleMobileMenu();
+    }
+  };
   return (
-    <div className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center">
-      <div className="w-[1266px] h-[1266px] mx-auto top-[300px] absolute bg-gradient-to-b from-red-600/50 to-red-800/50 rounded-full blur-[250px]" />
-      {/* <div className="w-[822px] h-[822px] mx-auto top-[350px] absolute bg-gradient-to-b from-red-600 to-red-800 rounded-full blur-[200px]" /> */}
-      <img
-        src="/assets/Images/hero-blur1.svg"
-        alt=""
-        className="absolute w-full h-full object-cover"
-      />
-      {/* <img src="/assets/Images/hero-blur2.png" alt="" className="absolute w-full h-full object-cover" /> */}
-      <div className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10">
-        <div className="w-full h-full absolute bg-red-600/30 rounded-full" />
+    <>
+      <div className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center">
+        <div className="w-[1266px] h-[1266px] mx-auto top-[300px] absolute bg-gradient-to-b from-red-600/50 to-red-800/50 rounded-full blur-[250px]" />
+        {/* <div className="w-[822px] h-[822px] mx-auto top-[350px] absolute bg-gradient-to-b from-red-600 to-red-800 rounded-full blur-[200px]" /> */}
         <img
-          className="object-cover z-10 scale-108 w-full h-full -mt-32 ml-4"
-          src="/assets/Images/moon.svg"
-          alt="moon"
+          src="/assets/Images/hero-blur1.svg"
+          alt=""
+          className="absolute w-full h-full object-cover"
         />
-      </div>
-      <img
-        className="absolute z-20 max-md:-bottom-10 h-full w-full overflow-hidden object-cover"
-        src={"/assets/Images/trees-bg.png"}
-      />
-      <div className="top-0 absolute w-52 z-20">
+        {/* <img src="/assets/Images/hero-blur2.png" alt="" className="absolute w-full h-full object-cover" /> */}
+        <div className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10 max-sm:-bottom-25">
+          <div className="w-full h-full absolute bg-red-600/30 rounded-full" />
+          <img
+            className="object-cover z-10 scale-108 w-full h-full -mt-32 ml-4"
+            src="/assets/Images/moon.svg"
+            alt="moon"
+          />
+        </div>
         <img
-          src="/assets/Images/hanging-board.svg"
-          className="z-20"
-          alt="ground"
+          className="absolute z-20 max-md:-bottom-10 h-full w-full overflow-hidden object-cover"
+          src={"/assets/Images/trees-bg.png"}
         />
-        <p className="text-white text-center top-[65px] left-[82px] text-xl absolute font-naluka opacity-80">
-          Home
-        </p>
-      </div>
-      <img
-        src="/assets/Images/mind-flayer1.png"
-        className="opacity-10 z-0 w-full top-5 h-full absolute object-cover"
-        alt=""
-      />
-      <img
-        src="/assets/Images/Infotsav25.svg"
-        className="z-20 bottom-30 scale-85 max-sm:bottom-50 absolute object-cover"
-        alt=""
-      />
-      <img src="/assets/Images/sign-board.svg" className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10 max-sm:hidden" alt="Sign Board" />
-      <div className="absolute bottom-10 scale-150 right-[15%] z-30 w-48">
-        <SvgImageMap
+        <div
+          className="top-0 absolute w-52 z-20"
+          onClick={() => handleMobileMenu()}
+        >
+          <img
+            src="/assets/Images/hanging-board.svg"
+            className="z-20"
+            alt="ground"
+          />
+          <p className="text-white text-center top-[62px] left-[78px] text-2xl absolute font-realwood opacity-80">
+            {isMobile ? "Menu" : "Home"}
+          </p>
+        </div>
+        <img
+          src="/assets/Images/mind-flayer1.png"
+          className="opacity-10 z-0 w-full top-5 h-full absolute object-cover"
+          alt=""
+        />
+        <img
+          src="/assets/Images/Infotsav25.svg"
+          className="z-20 bottom-30 scale-85 max-sm:bottom-[22%] absolute object-cover"
+          alt=""
+        />
+        <img
           src="/assets/Images/sign-board.svg"
-          alt="Interactive Map"
-          className="w-full h-auto max-sm:hidden"
-          areas={areas}
+          className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10 max-sm:hidden"
+          alt="Sign Board"
         />
+        <div className="absolute bottom-10 scale-150 right-[15%] z-30 w-48">
+          <SvgImageMap
+            src="/assets/Images/sign-board.svg"
+            alt="Interactive Map"
+            className="w-full h-auto max-sm:hidden"
+            areas={areas}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -33,7 +33,7 @@ const AboutUs = () => {
         <h2 className="text-red-600 text-6xl md:text-7xl lg:text-8xl font-['Cattedrale-Demo-Regular'] mb-6">
           About Us
         </h2>
-        <p className="text-white text-base md:text-lg lg:text-xl font-['Naluka'] leading-relaxed">
+        <p className="text-white text-base md:text-lg lg:text-xl font-['Naluka'] leading-relaxed tracking-wider">
           Infotsav is the flagship fest of ABV-IIITM, Gwalior, celebrating
           technology, management, and innovation. It ignites creativity and
           fosters competition among students from top institutions. Sponsored by
