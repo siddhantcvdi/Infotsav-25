@@ -5,14 +5,14 @@ const AboutUs = () => {
       <img
         src="/assets/Images/trees-bg.png"
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover z-[10] rotate-180"
+        className="absolute inset-0 w-full h-full object-cover z-[10] rotate-180 max-sm:-top-10"
         loading="lazy"
       />
       {/* Background Blur Image (Teal image instead of div gradient) */}
       <img
         src="/assets/Backgrounds/about-blur.png"
         alt="Blur Background"
-        className="absolute left-1/2 -translate-x-1/2 w-[1286px] h-[1286px] z-[5] pointer-events-none select-none"
+        className="absolute left-1/2 -translate-x-1/2 h-full w-full object-cover z-[5] pointer-events-none select-none"
         loading="lazy"
       />
       {/* Black Blur - half-circle at bottom */}
@@ -23,7 +23,7 @@ const AboutUs = () => {
 
       {/* Foreground Decorative Image */}
       <img
-        className="absolute w-40 h-64 left-[318px] top-[290px] origin-top-left -rotate-180 z-10"
+        className="absolute w-40 h-64 left-[318px] top-[290px] origin-top-left -rotate-180 z-10 max-sm:hidden"
         src="/assets/Images/Demogorgon.png"
         alt="Demogorgon"
         loading="lazy"

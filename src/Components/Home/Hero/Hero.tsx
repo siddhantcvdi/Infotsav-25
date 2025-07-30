@@ -87,7 +87,7 @@ const Hero = () => {
         className="absolute z-20 max-md:-bottom-10 h-full w-full overflow-hidden object-cover"
         src={"/assets/Images/trees-bg.png"}
       />
-      <div className="top-0 absolute w-52">
+      <div className="top-0 absolute w-52 z-20">
         <img
           src="/assets/Images/hanging-board.svg"
           className="z-20"
@@ -99,7 +99,7 @@ const Hero = () => {
       </div>
       <img
         src="/assets/Images/mind-flayer1.png"
-        className="opacity-4 z-0 w-full top-5 h-full absolute object-cover"
+        className="opacity-10 z-0 w-full top-5 h-full absolute object-cover"
         alt=""
       />
       <img
@@ -107,12 +107,12 @@ const Hero = () => {
         className="z-20 bottom-30 scale-85 max-sm:bottom-50 absolute object-cover"
         alt=""
       />
-      <img src="/assets/Images/sign-board.svg" className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10" alt="Sign Board" />
+      <img src="/assets/Images/sign-board.svg" className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10 max-sm:hidden" alt="Sign Board" />
       <div className="absolute bottom-10 scale-150 right-[15%] z-30 w-48">
         <SvgImageMap
           src="/assets/Images/sign-board.svg"
           alt="Interactive Map"
-          className="w-full h-auto"
+          className="w-full h-auto max-sm:hidden"
           areas={areas}
         />
       </div>
