@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import HangingSponsor from "./HangingSponsor";
+import HangingSponsor from "../../ui/HangingSponsor";
 
 const MainSponsors: React.FC = () => {
   const topPathRef = useRef<SVGPathElement>(null);
@@ -7,9 +7,15 @@ const MainSponsors: React.FC = () => {
   const topSvgRef = useRef<SVGSVGElement>(null);
   const bottomSvgRef = useRef<SVGSVGElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [topPositions, setTopPositions] = useState<{ x: number; y: number }[]>([]);
-  const [bottomPositions, setBottomPositions] = useState<{ x: number; y: number }[]>([]);
-  const [singleRopePositions, setSingleRopePositions] = useState<{ x: number; y: number }[]>([]);
+  const [topPositions, setTopPositions] = useState<{ x: number; y: number }[]>(
+    []
+  );
+  const [bottomPositions, setBottomPositions] = useState<
+    { x: number; y: number }[]
+  >([]);
+  const [singleRopePositions, setSingleRopePositions] = useState<
+    { x: number; y: number }[]
+  >([]);
 
   const MOBILE_SPONSOR_COUNT = 3;
   const DESKTOP_SPONSOR_COUNT = 7;
@@ -36,26 +42,35 @@ const MainSponsors: React.FC = () => {
     const margin = 0.17;
 
     // Top rope positions
-    const newTopPositions = Array.from({ length: MOBILE_SPONSOR_COUNT }, (_, i) => {
-      const pct = margin + (i / (MOBILE_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
-      const point = topPath.getPointAtLength(topPathLength * pct);
+    const newTopPositions = Array.from(
+      { length: MOBILE_SPONSOR_COUNT },
+      (_, i) => {
+        const pct =
+          margin + (i / (MOBILE_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
+        const point = topPath.getPointAtLength(topPathLength * pct);
 
-      const x = (point.x / VIEWBOX_WIDTH) * topRect.width;
-      const y = (point.y / VIEWBOX_HEIGHT) * topRect.height + hangingOffset;
+        const x = (point.x / VIEWBOX_WIDTH) * topRect.width;
+        const y = (point.y / VIEWBOX_HEIGHT) * topRect.height + hangingOffset;
 
-      return { x, y };
-    });
+        return { x, y };
+      }
+    );
 
     // Bottom rope positions
-    const newBottomPositions = Array.from({ length: MOBILE_SPONSOR_COUNT }, (_, i) => {
-      const pct = margin + (i / (MOBILE_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
-      const point = bottomPath.getPointAtLength(bottomPathLength * pct);
+    const newBottomPositions = Array.from(
+      { length: MOBILE_SPONSOR_COUNT },
+      (_, i) => {
+        const pct =
+          margin + (i / (MOBILE_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
+        const point = bottomPath.getPointAtLength(bottomPathLength * pct);
 
-      const x = (point.x / VIEWBOX_WIDTH) * bottomRect.width;
-      const y = (point.y / VIEWBOX_HEIGHT) * bottomRect.height + hangingOffset;
+        const x = (point.x / VIEWBOX_WIDTH) * bottomRect.width;
+        const y =
+          (point.y / VIEWBOX_HEIGHT) * bottomRect.height + hangingOffset;
 
-      return { x, y };
-    });
+        return { x, y };
+      }
+    );
 
     setTopPositions(newTopPositions);
     setBottomPositions(newBottomPositions);
@@ -71,15 +86,19 @@ const MainSponsors: React.FC = () => {
     const hangingOffset = rect.height;
     const margin = 0.07;
 
-    const newPositions = Array.from({ length: DESKTOP_SPONSOR_COUNT }, (_, i) => {
-      const pct = margin + (i / (DESKTOP_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
-      const point = topPath.getPointAtLength(pathLength * pct);
+    const newPositions = Array.from(
+      { length: DESKTOP_SPONSOR_COUNT },
+      (_, i) => {
+        const pct =
+          margin + (i / (DESKTOP_SPONSOR_COUNT - 1)) * (1 - 2 * margin);
+        const point = topPath.getPointAtLength(pathLength * pct);
 
-      const x = (point.x / VIEWBOX_WIDTH) * rect.width;
-      const y = (point.y / VIEWBOX_HEIGHT) * rect.height + hangingOffset;
+        const x = (point.x / VIEWBOX_WIDTH) * rect.width;
+        const y = (point.y / VIEWBOX_HEIGHT) * rect.height + hangingOffset;
 
-      return { x, y };
-    });
+        return { x, y };
+      }
+    );
 
     setSingleRopePositions(newPositions);
   };
@@ -197,7 +216,7 @@ const MainSponsors: React.FC = () => {
               className="absolute flex flex-col w-full items-center z-10"
               style={{
                 left: `${pos.x}px`,
-                top: `${pos.y + window.innerHeight * 0.30}px`,
+                top: `${pos.y + window.innerHeight * 0.3}px`,
                 transform: "translateX(-50%)",
               }}
             >
