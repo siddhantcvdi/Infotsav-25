@@ -20,11 +20,12 @@ const MobileMenu = () => {
             document.body.style.overflow = "auto";
         };
     }, []);
+    const toggleMobileMenu = useMobileMenuStore(state => state.toggleMobileMenu);
   return (
     <div className="w-screen h-screen fixed bg-black/70 backdrop-blur-md z-50 top-0 flex flex-col justify-center items-center gap-10">
         <X className="absolute top-5 right-5 cursor-pointer" size={30} onClick={() => useMobileMenuStore.getState().toggleMobileMenu()} />
         {
-            menuOptions.map((option, index) => <NavLink to={option.href} className={'font-realwood text-4xl'} key={index}>{option.label}</NavLink>)
+            menuOptions.map((option, index) => <NavLink to={option.href} className={'font-realwood text-4xl'} key={index} onClick={()=>toggleMobileMenu()}>{option.label}</NavLink>)
         }
     </div>
   )

@@ -117,7 +117,7 @@ const Hero = () => {
         />
         <img
           src="/assets/Images/Infotsav25.svg"
-          className="z-20 bottom-30 scale-85 max-sm:bottom-45 absolute object-cover"
+          className="z-20 bottom-30 scale-85 max-sm:bottom-[22%] absolute object-cover"
           alt=""
         />
         <img

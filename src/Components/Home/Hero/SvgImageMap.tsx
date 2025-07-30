@@ -62,7 +62,7 @@ const SvgImageMap: React.FC<Props> = ({ src, alt, areas, className = '' }) => {
               ...area.style,
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.fill = 'rgba(255, 255, 255, 0.05)';
+              e.currentTarget.style.fill = 'rgba(255, 255, 255, 0.07)';
               e.currentTarget.style.stroke = 'white';
               e.currentTarget.style.strokeWidth = '0';
             }}
