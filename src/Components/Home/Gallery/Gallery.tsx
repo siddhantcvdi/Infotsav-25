@@ -1,8 +1,8 @@
 const Gallery = () => {
     return (
-        <section className="w-full h-dvh max-h-[800px] relative bg-[#300003] overflow-hidden flex items-center justify-center">
+        <section className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center">
             {/* Red blurred background circle */}
-            <div className="absolute w-[2578px] h-[2516px] left-[-425px] top-[600px] rounded-full blur-[401.26px] bg-gradient-to-b from-[#300003] " />
+            <div className="absolute w-[2578px] h-[2516px] left-[-425px] top-[600px] rounded-full blur-[401.26px] bg-gradient-to-b from-red-600/90 to-red-800/90" />
 
             {/* Left Tree Image - zoomed out */}
             <img

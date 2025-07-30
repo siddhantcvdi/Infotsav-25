@@ -4,7 +4,7 @@ const IntroVideo = () => {
     return (
         <div className="flex-col w-full h-dvh max-h-[800px] relative bg-black overflow-hidden flex items-center justify-center">
             {/* Background gradient blur - positioned like Figma */}
-            <div className="absolute left-[-9%] top-[77%] w-[118%] h-[118%] bg-gradient-to-b from-red-600/50 to-red-800/20 rounded-full blur-[200px] md:blur-[400px]" />
+            <div className="absolute left-[-9%] top-[77%] w-[118%] h-[118%] bg-gradient-to-b from-red-600/50 to-red-800/50 rounded-full blur-[200px] md:blur-[400px]" />
 
             {/* Main video holder frame */}
             <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
