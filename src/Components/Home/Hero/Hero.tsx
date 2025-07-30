@@ -85,7 +85,7 @@ const Hero = () => {
           className="absolute w-full h-full object-cover"
         />
         {/* <img src="/assets/Images/hero-blur2.png" alt="" className="absolute w-full h-full object-cover" /> */}
-        <div className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10">
+        <div className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10 max-sm:-bottom-25">
           <div className="w-full h-full absolute bg-red-600/30 rounded-full" />
           <img
             className="object-cover z-10 scale-108 w-full h-full -mt-32 ml-4"
@@ -106,8 +106,8 @@ const Hero = () => {
             className="z-20"
             alt="ground"
           />
-          <p className="text-white text-center top-[65px] left-[82px] text-xl absolute font-naluka opacity-80">
-            {isMobile ? "More" : "Home"}
+          <p className="text-white text-center top-[62px] left-[78px] text-2xl absolute font-realwood opacity-80">
+            {isMobile ? "Menu" : "Home"}
           </p>
         </div>
         <img
@@ -117,7 +117,7 @@ const Hero = () => {
         />
         <img
           src="/assets/Images/Infotsav25.svg"
-          className="z-20 bottom-30 scale-85 max-sm:bottom-50 absolute object-cover"
+          className="z-20 bottom-30 scale-85 max-sm:bottom-45 absolute object-cover"
           alt=""
         />
         <img
