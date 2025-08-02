@@ -38,7 +38,7 @@ const areas: {
   },
   {
     name: "Area 3",
-    href: "/gallery",
+    href: "/ambassador",
     coords: [
       [276, 263],
       [311, 285],
@@ -122,7 +122,7 @@ const Hero = () => {
         />
         <img
           src="/assets/Images/sign-board.svg"
-          className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10 max-sm:hidden"
+          className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10 max-md:hidden"
           alt="Sign Board"
         />
         <div className="absolute bottom-10 scale-150 right-[15%] z-30 w-48">

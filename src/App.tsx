@@ -14,7 +14,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/events" element={<CommingSoon />} />
                     <Route path="/sponsors" element={<Sponsors />} />
-                    <Route path="/gallery" element={<CommingSoon />} />
+                    <Route path="/ambassador" element={<CommingSoon />} />
                     <Route path="/contact" element={<CommingSoon />} />
                     <Route path="*" element={<Error404 />} />
                 </Routes>
