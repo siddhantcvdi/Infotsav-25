@@ -1,117 +1,186 @@
-import CK from "../assets/PastSponsors/CK.png";
-import CodeChef from "../assets/PastSponsors/CodeChef.png";
-import DainikBhaskar from "../assets/PastSponsors/Dainik_Bhaskar.png";
-import DigitalOcean from "../assets/PastSponsors/Digital_Ocean.png";
-import FabHotels from "../assets/PastSponsors/fabHotels.jpg";
-import FestPav from "../assets/PastSponsors/FestPav.png";
-import HackSociety from "../assets/PastSponsors/Hack_Society.png";
-import HackerEarth from "../assets/PastSponsors/HackerEarth.png";
-import InkMonk from "../assets/PastSponsors/InkMonk.png";
-import KnowAFest from "../assets/PastSponsors/KnowAFest.png";
-import MyFM from "../assets/PastSponsors/MyFM.png";
-import PayTM from "../assets/PastSponsors/PayTM.png";
-import Swiggy from "../assets/PastSponsors/Swiggy.png";
-import TCF from "../assets/PastSponsors/The_College_Fever.png";
-import swiggy from "../assets/SponsorPage/swiggy.png";
-import myfm from "../assets/SponsorPage/myfm.png";
-import inkmonk from "../assets/SponsorPage/inkmonk.png";
-import hackerearth from "../assets/SponsorPage/hackerearth.png";
-import collegefever from "../assets/SponsorPage/collegefever.png";
-import digitalocean from "../assets/SponsorPage/digitalocean.png";
-import db from "../assets/SponsorPage/db.png";
-import ck from "../assets/SponsorPage/ck.png";
-import paytm from "../assets/SponsorPage/paytm.png";
-import festpav from "../assets/SponsorPage/festpav.png";
-import hacksociety from "../assets/SponsorPage/hacksociety.png";
-import knowafest from "../assets/SponsorPage/knowafest.png";
-import wolfram from "../assets/SponsorPage/wolfram.png";
-import codechef from "../assets/SponsorPage/codechef.png";
-import devfolio from "../assets/SponsorPage/devfolio.png";
-import ethIndia from "../assets/SponsorPage/EthIndia.png";
-import polygon from "../assets/SponsorPage/Polygon.png";
-import internshala from "../assets/SponsorPage/internshala.png";
-import canaraBank from "../assets/SponsorPage/canaraBank.png";
-import unstop from "../assets/SponsorPage/unstop.png";
-import sbi from "../assets/SponsorPage/SBI.png";
-import easeMyTrip from "../assets/SponsorPage/EaseMyTrip.png";
-import Edukul from "../assets/SponsorPage/Edukul.png";
-import UdupisKitchen from "../assets/SponsorPage/UdupisKitchen.png";
-import Aptos from "../assets/SponsorPage/Aptos.png";
-import HighHeads from "../assets/SponsorPage/HighHeads.png";
-import PizzaHut from "../assets/SponsorPage/PizzaHut.png";
-import Foodiyapa from "../assets/SponsorPage/Foodiyapa.png";
-import HotelGoldInn from "../assets/SponsorPage/HotelGoldInn.png";
-import AggarawalCaterers from "../assets/SponsorPage/AggarawalCaterers.png";
-import ChaiChowk from "../assets/SponsorPage/ChaiChowk.png";
+// Past Sponsors from 2019
+import CK19 from '/assets/Images/Sponsers/PastSponsers/19/CK.png';
+import CodeChef19 from '/assets/Images/Sponsers/PastSponsers/19/CodeChef.png';
+import DainikBhaskar19 from '/assets/Images/Sponsers/PastSponsers/19/Dainik_Bhaskar.png';
+import DigitalOcean19 from '/assets/Images/Sponsers/PastSponsers/19/Digital_Ocean.png';
+import FabHotels19 from '/assets/Images/Sponsers/PastSponsers/19/fabHotels.jpg';
+import FestPav19 from '/assets/Images/Sponsers/PastSponsers/19/FestPav.png';
+import HackSociety19 from '/assets/Images/Sponsers/PastSponsers/19/Hack_Society.png';
+import HackerEarth19 from '/assets/Images/Sponsers/PastSponsers/19/HackerEarth.png';
+import InkMonk19 from '/assets/Images/Sponsers/PastSponsers/19/InkMonk.png';
+import KnowAFest19 from '/assets/Images/Sponsers/PastSponsers/19/KnowAFest.png';
+import MyFM19 from '/assets/Images/Sponsers/PastSponsers/19/MyFM.png';
+import PayTM19 from '/assets/Images/Sponsers/PastSponsers/19/PayTM.png';
+import Swiggy19 from '/assets/Images/Sponsers/PastSponsers/19/Swiggy.png';
+import TCF19 from '/assets/Images/Sponsers/PastSponsers/19/The_College_Fever.png';
+
+// Past Sponsors from 2024
+import AggarawalCaterers24 from '/assets/Images/Sponsers/PastSponsers/24/AggarawalCaterers.png';
+import Aptos24 from '/assets/Images/Sponsers/PastSponsers/24/Aptos.png';
+import ChaiChowk24 from '/assets/Images/Sponsers/PastSponsers/24/ChaiChowk.png';
+import CK24 from '/assets/Images/Sponsers/PastSponsers/24/ck.png';
+import CodeChef24 from '/assets/Images/Sponsers/PastSponsers/24/codechef.png';
+import CollegeFever24 from '/assets/Images/Sponsers/PastSponsers/24/collegefever.png';
+import CanaraBank24 from '/assets/Images/Sponsers/PastSponsers/24/canaraBank.png';
+import DB24 from '/assets/Images/Sponsers/PastSponsers/24/db.png';
+import Devfolio24 from '/assets/Images/Sponsers/PastSponsers/24/devfolio.png';
+import DigitalOcean24 from '/assets/Images/Sponsers/PastSponsers/24/digitalocean.png';
+import EaseMyTrip24 from '/assets/Images/Sponsers/PastSponsers/24/EaseMyTrip.png';
+import Edukul24 from '/assets/Images/Sponsers/PastSponsers/24/Edukul.png';
+import EthIndia24 from '/assets/Images/Sponsers/PastSponsers/24/EthIndia.png';
+import FestPav24 from '/assets/Images/Sponsers/PastSponsers/24/festpav.png';
+import Foodiyapa24 from '/assets/Images/Sponsers/PastSponsers/24/Foodiyapa.png';
+import HackerEarth24 from '/assets/Images/Sponsers/PastSponsers/24/hackerearth.png';
+import HackSociety24 from '/assets/Images/Sponsers/PastSponsers/24/hacksociety.png';
+import HighHeads24 from '/assets/Images/Sponsers/PastSponsers/24/HighHeads.png';
+import HotelGoldInn24 from '/assets/Images/Sponsers/PastSponsers/24/HotelGoldInn.png';
+import InkMonk24 from '/assets/Images/Sponsers/PastSponsers/24/inkmonk.png';
+import Internshala24 from '/assets/Images/Sponsers/PastSponsers/24/internshala.png';
+import KnowAFest24 from '/assets/Images/Sponsers/PastSponsers/24/knowafest.png';
+import MyFM24 from '/assets/Images/Sponsers/PastSponsers/24/myfm.png';
+import PayTM24 from '/assets/Images/Sponsers/PastSponsers/24/paytm.png';
+import PizzaHut24 from '/assets/Images/Sponsers/PastSponsers/24/PizzaHut.png';
+import Polygon24 from '/assets/Images/Sponsers/PastSponsers/24/Polygon.png';
+import SBI24 from '/assets/Images/Sponsers/PastSponsers/24/SBI.png';
+import Swiggy24 from '/assets/Images/Sponsers/PastSponsers/24/swiggy.png';
+import UdupisKitchen24 from '/assets/Images/Sponsers/PastSponsers/24/UdupisKitchen.png';
+import Unstop24 from '/assets/Images/Sponsers/PastSponsers/24/unstop.png';
+import Wolfram24 from '/assets/Images/Sponsers/PastSponsers/24/wolfram.png';
 
 export interface Sponsor {
-  name: string;
-  src: string;
+    name: string;
+    src: string;
 }
 
 export interface currentSponsor {
-  name: string;
-  src: string;
-  alt: string;
+    name: string;
+    src: string;
+    alt: string;
 }
 
+// Past Sponsors from 2019
+export const PastSponsors19: Sponsor[] = [
+    { name: 'CK', src: CK19 },
+    { name: 'CodeChef', src: CodeChef19 },
+    { name: 'Dainik Bhaskar', src: DainikBhaskar19 },
+    { name: 'Digital Ocean', src: DigitalOcean19 },
+    { name: 'FabHotels', src: FabHotels19 },
+    { name: 'FestPav', src: FestPav19 },
+    { name: 'Hack Society', src: HackSociety19 },
+    { name: 'HackerEarth', src: HackerEarth19 },
+    { name: 'InkMonk', src: InkMonk19 },
+    { name: 'KnowAFest', src: KnowAFest19 },
+    { name: 'MyFM', src: MyFM19 },
+    { name: 'PayTM', src: PayTM19 },
+    { name: 'Swiggy', src: Swiggy19 },
+    { name: 'The College Fever', src: TCF19 },
+];
+
+// Past Sponsors from 2024
+export const PastSponsors24: currentSponsor[] = [
+    {
+        name: 'Aggarwal Caterers',
+        src: AggarawalCaterers24,
+        alt: 'AGGARWAL CATERERS LOGO',
+    },
+    { name: 'Aptos', src: Aptos24, alt: 'APTOS LOGO' },
+    { name: 'Chai Chowk', src: ChaiChowk24, alt: 'CHAI CHOWK LOGO' },
+    { name: 'CK', src: CK24, alt: 'CK LOGO' },
+    { name: 'CodeChef', src: CodeChef24, alt: 'CODECHEF LOGO' },
+    {
+        name: 'The College Fever',
+        src: CollegeFever24,
+        alt: 'THE COLLEGE FEVER LOGO',
+    },
+    { name: 'Canara Bank', src: CanaraBank24, alt: 'CANARA BANK LOGO' },
+    { name: 'Dainik Bhaskar', src: DB24, alt: 'DAINIK BHASKAR LOGO' },
+    { name: 'Devfolio', src: Devfolio24, alt: 'DEVFOLIO LOGO' },
+    { name: 'Digital Ocean', src: DigitalOcean24, alt: 'DIGITAL OCEAN LOGO' },
+    { name: 'EaseMyTrip', src: EaseMyTrip24, alt: 'EASEMYTRIP LOGO' },
+    { name: 'Edukul', src: Edukul24, alt: 'EDUKUL LOGO' },
+    { name: 'EthIndia', src: EthIndia24, alt: 'ETHINDIA LOGO' },
+    { name: 'FestPav', src: FestPav24, alt: 'FESTPAV LOGO' },
+    { name: 'Foodiyapa', src: Foodiyapa24, alt: 'FOODIYAPA LOGO' },
+    { name: 'HackerEarth', src: HackerEarth24, alt: 'HACKEREARTH LOGO' },
+    { name: 'Hack Society', src: HackSociety24, alt: 'HACK SOCIETY LOGO' },
+    { name: 'HighHeads', src: HighHeads24, alt: 'HIGHHEADS LOGO' },
+    { name: 'Hotel Gold Inn', src: HotelGoldInn24, alt: 'HOTEL GOLD INN LOGO' },
+    { name: 'InkMonk', src: InkMonk24, alt: 'INKMONK LOGO' },
+    { name: 'Internshala', src: Internshala24, alt: 'INTERNSHALA LOGO' },
+    { name: 'KnowAFest', src: KnowAFest24, alt: 'KNOWAFEST LOGO' },
+    { name: 'MyFM', src: MyFM24, alt: 'MYFM LOGO' },
+    { name: 'PayTM', src: PayTM24, alt: 'PAYTM LOGO' },
+    { name: 'Pizza Hut', src: PizzaHut24, alt: 'PIZZA HUT LOGO' },
+    { name: 'Polygon', src: Polygon24, alt: 'POLYGON LOGO' },
+    { name: 'SBI', src: SBI24, alt: 'SBI LOGO' },
+    { name: 'Swiggy', src: Swiggy24, alt: 'SWIGGY LOGO' },
+    {
+        name: "Udupi's Kitchen",
+        src: UdupisKitchen24,
+        alt: "UDUPI'S KITCHEN LOGO",
+    },
+    { name: 'Unstop', src: Unstop24, alt: 'UNSTOP LOGO' },
+    { name: 'Wolfram', src: Wolfram24, alt: 'WOLFRAM LOGO' },
+];
+
+// Legacy exports for backward compatibility
 export const pastSponsors1: Sponsor[] = [
-  { name: "CK", src: CK },
-  { name: "CodeChef", src: CodeChef },
-  { name: "Dainik Bhaskar", src: DainikBhaskar },
-  { name: "Digital Ocean", src: DigitalOcean },
-  { name: "FabHotels", src: FabHotels },
-  { name: "FestPav", src: FestPav },
-  { name: "Hack Society", src: HackSociety },
+    { name: 'CK', src: CK19 },
+    { name: 'CodeChef', src: CodeChef19 },
+    { name: 'Dainik Bhaskar', src: DainikBhaskar19 },
+    { name: 'Digital Ocean', src: DigitalOcean19 },
+    { name: 'FabHotels', src: FabHotels19 },
+    { name: 'FestPav', src: FestPav19 },
+    { name: 'Hack Society', src: HackSociety19 },
 ];
 
 export const pastSponsors2: Sponsor[] = [
-  { name: "HackerEarth", src: HackerEarth },
-  { name: "InkMonk", src: InkMonk },
-  { name: "KnowAFest", src: KnowAFest },
-  { name: "MyFM", src: MyFM },
-  { name: "PayTM", src: PayTM },
-  { name: "Swiggy", src: Swiggy },
-  { name: "The College Fever", src: TCF },
+    { name: 'HackerEarth', src: HackerEarth19 },
+    { name: 'InkMonk', src: InkMonk19 },
+    { name: 'KnowAFest', src: KnowAFest19 },
+    { name: 'MyFM', src: MyFM19 },
+    { name: 'PayTM', src: PayTM19 },
+    { name: 'Swiggy', src: Swiggy19 },
+    { name: 'The College Fever', src: TCF19 },
 ];
 
 export const sponsorPage: Sponsor[] = [
-  { name: "swiggy", src: swiggy },
-  { name: "myfm", src: myfm },
-  { name: "db", src: db },
-  { name: "digitalocean", src: digitalocean },
-  { name: "collegefever", src: collegefever },
-  { name: "hackerearth", src: hackerearth },
-  { name: "inkmonk", src: inkmonk },
-  { name: "ck", src: ck },
-  { name: "paytm", src: paytm },
-  { name: "festpav", src: festpav },
-  { name: "hacksociety", src: hacksociety },
-  { name: "knowafest", src: knowafest },
-  { name: "wolfram", src: wolfram },
-  { name: "codechef", src: codechef },
+    { name: 'swiggy', src: Swiggy24 },
+    { name: 'myfm', src: MyFM24 },
+    { name: 'db', src: DB24 },
+    { name: 'digitalocean', src: DigitalOcean24 },
+    { name: 'collegefever', src: CollegeFever24 },
+    { name: 'hackerearth', src: HackerEarth24 },
+    { name: 'inkmonk', src: InkMonk24 },
+    { name: 'ck', src: CK24 },
+    { name: 'paytm', src: PayTM24 },
+    { name: 'festpav', src: FestPav24 },
+    { name: 'hacksociety', src: HackSociety24 },
+    { name: 'knowafest', src: KnowAFest24 },
+    { name: 'wolfram', src: Wolfram24 },
+    { name: 'codechef', src: CodeChef24 },
 ];
 
 export const currentSponsers: currentSponsor[] = [
-  { name: "Devfolio", src: devfolio, alt: "DEVFOLIO LOGO" },
-  { name: "Polygon", src: polygon, alt: "POLYGON LOGO" },
-  { name: "EthIndia", src: ethIndia, alt: "ETHINDIA LOGO" },
-  { name: "Internshala", src: internshala, alt: "INTERNSHALA LOGO" },
-  { name: "CanaraBank", src: canaraBank, alt: "CANARABANK LOGO" },
-  { name: "Unstop", src: unstop, alt: "UNSTOP LOGO" },
-  { name: "Sbi", src: sbi, alt: "SBI LOGO" },
-  { name: "EaseMyTrip", src: easeMyTrip, alt: "EASEMYTRIP LOGO" },
-  { name: "Edukul", src: Edukul, alt: "EDUKUL LOGO" },
-  { name: "UdupisKitchen", src: UdupisKitchen, alt: "UDUPISKITCHEN LOGO" },
-  { name: "Aptos", src: Aptos, alt: "APTOS LOGO" },
-  { name: "HighHeads", src: HighHeads, alt: "HIGHHEADS LOGO" },
-  { name: "PizzaHut", src: PizzaHut, alt: "PIZZAHUT LOGO" },
-  { name: "Foodiyapa", src: Foodiyapa, alt: "FOODIYAPA LOGO" },
-  { name: "HotelGoldInn", src: HotelGoldInn, alt: "HOTELGOLDINN LOGO" },
-  {
-    name: "AggarawalCaterers",
-    src: AggarawalCaterers,
-    alt: "AGGARAWALCATERERS LOGO",
-  },
-  { name: "ChaiChowk", src: ChaiChowk, alt: "CHAICHOWK LOGO" },
+    { name: 'Devfolio', src: Devfolio24, alt: 'DEVFOLIO LOGO' },
+    { name: 'Polygon', src: Polygon24, alt: 'POLYGON LOGO' },
+    { name: 'EthIndia', src: EthIndia24, alt: 'ETHINDIA LOGO' },
+    { name: 'Internshala', src: Internshala24, alt: 'INTERNSHALA LOGO' },
+    { name: 'CanaraBank', src: CanaraBank24, alt: 'CANARABANK LOGO' },
+    { name: 'Unstop', src: Unstop24, alt: 'UNSTOP LOGO' },
+    { name: 'Sbi', src: SBI24, alt: 'SBI LOGO' },
+    { name: 'EaseMyTrip', src: EaseMyTrip24, alt: 'EASEMYTRIP LOGO' },
+    { name: 'Edukul', src: Edukul24, alt: 'EDUKUL LOGO' },
+    { name: 'UdupisKitchen', src: UdupisKitchen24, alt: 'UDUPISKITCHEN LOGO' },
+    { name: 'Aptos', src: Aptos24, alt: 'APTOS LOGO' },
+    { name: 'HighHeads', src: HighHeads24, alt: 'HIGHHEADS LOGO' },
+    { name: 'PizzaHut', src: PizzaHut24, alt: 'PIZZAHUT LOGO' },
+    { name: 'Foodiyapa', src: Foodiyapa24, alt: 'FOODIYAPA LOGO' },
+    { name: 'HotelGoldInn', src: HotelGoldInn24, alt: 'HOTELGOLDINN LOGO' },
+    {
+        name: 'AggarawalCaterers',
+        src: AggarawalCaterers24,
+        alt: 'AGGARAWALCATERERS LOGO',
+    },
+    { name: 'ChaiChowk', src: ChaiChowk24, alt: 'CHAICHOWK LOGO' },
 ];
