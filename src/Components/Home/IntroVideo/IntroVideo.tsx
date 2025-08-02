@@ -6,6 +6,7 @@ const IntroVideo = () => {
         className="w-full h-full absolute object-cover"
         alt=""
       />
+      <div className="absolute top-0 bg-gradient-to-b from-black to-transparent h-1/2 w-full"></div>
       {/* Main video holder frame */}
       <div className="absolute w-full max-w-7xl mx-auto px-4 sm:px-10 md:px-12 flex justify-center bottom-0 -translate-x-1/2 left-1/2">
         <img
