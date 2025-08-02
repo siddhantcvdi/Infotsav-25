@@ -5,7 +5,7 @@ const AboutUs = () => {
       <img
         src="/assets/Images/trees-bg.png"
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover z-[10] rotate-180 max-sm:-top-10"
+        className="absolute inset-0 w-full h-full object-cover z-[10] rotate-180 max-sm:-top-10 "
         loading="lazy"
       />
       {/* Background Blur Image (Teal image instead of div gradient) */}
