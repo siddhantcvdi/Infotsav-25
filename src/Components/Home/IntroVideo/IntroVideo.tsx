@@ -29,22 +29,22 @@ const IntroVideo = () => {
       <img
         src="/assets/Images/tree1.png"
         alt="Tree left"
-        className="absolute h-auto -left-10 -bottom-40 scale-90 max-sm:hidden origin-top-left"
+        className="absolute h-auto -left-10 -bottom-40 scale-90 max-md:hidden origin-top-left"
       />
       <img
         src="/assets/Images/tree5.png"
         alt="Tree left"
-        className="absolute h-auto -right-25  max-sm:hidden -bottom-40 scale-90 origin-top-left"
+        className="absolute h-auto -right-25  max-md:hidden -bottom-40 scale-90 origin-top-left"
       />
       <img
         src="/assets/Images/man-cycling-1.png"
         alt="Gallery item 3"
-        className="absolute w-44 h-auto max-sm:hidden left-40 bottom-[-25px] transform scale-[0.75]"
+        className="absolute w-44 h-auto max-md:hidden left-40 bottom-[-25px] transform scale-[0.75]"
       />
       <img
         src="/assets/Images/man-stand.png"
         alt="Gallery item 1"
-        className="absolute max-sm:hidden w-44 h-auto right-[100px] bottom-[-27px] transform scale-x-[-0.75] scale-y-[0.75]"
+        className="absolute max-md:hidden w-44 h-auto right-[100px] bottom-[-27px] transform scale-x-[-0.75] scale-y-[0.75]"
       />
     </div>
   );
