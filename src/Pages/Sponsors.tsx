@@ -1,5 +1,7 @@
-import HangingSponsor from '@/Components/ui/HangingSponsor';
-import { PastSponsors19, PastSponsors24 } from '@/Constants/PastSponsors';
+import {
+    PastSponsors19,
+    PastSponsors24,
+} from '@/Constants/Sponsers/PastSponsors';
 import Footer from '@/Components/Other/Footer';
 import { useNavigate } from 'react-router-dom';
 import SponsersPageUi from '@/Components/ui/SponsersPageUi';

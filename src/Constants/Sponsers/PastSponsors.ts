@@ -52,7 +52,7 @@ export interface Sponsor {
     src: string;
 }
 
-export interface currentSponsor {
+export interface generalSponser {
     name: string;
     src: string;
     alt: string;
@@ -77,7 +77,7 @@ export const PastSponsors19: Sponsor[] = [
 ];
 
 // Past Sponsors from 2024
-export const PastSponsors24: currentSponsor[] = [
+export const PastSponsors24: generalSponser[] = [
     {
         name: 'Aggarwal Caterers',
         src: AggarawalCaterers24,
@@ -161,7 +161,7 @@ export const sponsorPage: Sponsor[] = [
     { name: 'codechef', src: CodeChef24 },
 ];
 
-export const currentSponsers: currentSponsor[] = [
+export const currentSponsers: generalSponser[] = [
     { name: 'Devfolio', src: Devfolio24, alt: 'DEVFOLIO LOGO' },
     { name: 'Polygon', src: Polygon24, alt: 'POLYGON LOGO' },
     { name: 'EthIndia', src: EthIndia24, alt: 'ETHINDIA LOGO' },
@@ -183,4 +183,22 @@ export const currentSponsers: currentSponsor[] = [
         alt: 'AGGARAWALCATERERS LOGO',
     },
     { name: 'ChaiChowk', src: ChaiChowk24, alt: 'CHAICHOWK LOGO' },
+];
+
+export const homePageMobileViewSponsers: generalSponser[] = [
+    { name: 'Devfolio', src: Devfolio24, alt: 'DEVFOLIO LOGO' },
+    { name: 'Polygon', src: Polygon24, alt: 'POLYGON LOGO' },
+    { name: 'EthIndia', src: EthIndia24, alt: 'ETHINDIA LOGO' },
+    { name: 'Internshala', src: Internshala24, alt: 'INTERNSHALA LOGO' },
+    { name: 'CanaraBank', src: CanaraBank24, alt: 'CANARABANK LOGO' },
+    { name: 'Unstop', src: Unstop24, alt: 'UNSTOP LOGO' },
+    { name: 'Sbi', src: SBI24, alt: 'SBI LOGO' },
+    { name: 'MyFM', src: MyFM19, alt: 'MYFM LOGO' },
+    { name: 'EaseMyTrip', src: EaseMyTrip24, alt: 'EASEMYTRIP LOGO' },
+    { name: 'PizzaHut', src: PizzaHut24, alt: 'PIZZAHUT LOGO' },
+    { name: 'codechef', src: CodeChef24, alt: 'CODECHEF LOGO' },
+    { name: 'PayTM', src: PayTM19, alt: 'PAYTM LOGO' },
+    { name: 'Swiggy', src: Swiggy19, alt: 'SWIGGY LOGO' },
+    { name: 'Digital Ocean', src: DigitalOcean19, alt: 'DIGITAL OCEAN LOGO' },
+    { name: 'hackerearth', src: HackerEarth24, alt: 'HACKEREARTH LOGO' },
 ];
