@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { LayoutGrid } from '../../ui/layout-grid';
 import {
-    Calendar,
     Users,
     Trophy,
     Zap,
     ChevronLeft,
     ChevronRight,
     Music,
-    Star,
 } from 'lucide-react';
 
 const Gallery = () => {
