@@ -51,9 +51,9 @@ export default function Footer() {
                     </div>
 
                     {/* Center: Logo */}
-                    <div className="flex justify-center lg:justify-center border-8 rounded-full border-neutral-950">
+                    <div className="flex ">
                         <img
-                            className="w-32 h-32 scale-105"
+                            className="w-15 ml-10 h-15 scale-105"
                             src="/assets/Images/Home/Footer/logo.png"
                             alt="Infotsav Logo"
                         />
@@ -73,7 +73,6 @@ export default function Footer() {
                                 <span>Shashank Gour:</span>
                                 <span>9999999999</span>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
