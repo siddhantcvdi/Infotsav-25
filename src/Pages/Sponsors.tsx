@@ -1,24 +1,66 @@
-import HangingSponsor from "@/Components/ui/HangingSponsor";
+import HangingSponsor from '@/Components/ui/HangingSponsor';
+import { PastSponsors19, PastSponsors24 } from '@/Constants/PastSponsors';
+import Footer from '@/Components/Other/Footer';
+import { useNavigate } from 'react-router-dom';
+import SponsersPageUi from '@/Components/ui/SponsersPageUi';
 
 const Sponsors = () => {
-  return (
-    <div className="relative w-full h-[600px]">
-      {/* Teal Blur Background */}
-      <div className="w-[1286px] h-[1286px] bg-gradient-to-b from-slate-950/90 to-teal-700/90 rounded-full blur-[253.95px] absolute -top-[800px] left-[120px] z-0" />
+    // Combine all sponsors from both years
+    const allSponsors = [...PastSponsors19, ...PastSponsors24];
+    const navigate = useNavigate();
 
-      <div className="flex flex-col items-center gap-[64px] pt-8">
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-['Cattedrale-Demo-Regular'] text-white z-15">
-          Our Sponsors
-        </h1>
+    return (
+        <div className="relative w-full min-h-screen">
+            {/* Teal Blur Background - Fixed positioning for scroll - Responsive */}
+            <div className="w-[800px] h-[800px] md:w-[1286px] md:h-[1286px] bg-gradient-to-b from-slate-950/90 to-teal-700/90 rounded-full blur-[253.95px] fixed -top-[400px] left-[10px] md:-top-[800px] md:left-[120px] z-0" />
 
-        {/* Sponsor Container with controlled width */}
-        <div className="w-[1200px] max-w-full z-10 flex gap-[64px]">
-          <HangingSponsor imageURL="https://imgs.search.brave.com/QH6RcKqOra0M99evP7VW3aEwyTGO0Tir7FbPZaszgQo/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LWRldmZvbGlvLWxv/Z28taWNvbi1kb3du/bG9hZC1pbi1zdmct/cG5nLWdpZi1maWxl/LWZvcm1hdHMtLWJy/YW5kLWNvbXBhbnkt/cHJvZ3JhbW1pbmct/bGFuZ3VhZ2UtbG9n/b3MtcGFjay1pY29u/cy04MzgzNzI0LnBu/Zz9mPXdlYnAmdz0x/Mjg" />
-          <HangingSponsor />
+            {/* Back Arrow Button */}
+            <button
+                onClick={() => navigate('/')}
+                className="fixed top-8 left-8 z-20 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-3 hover:bg-white/20 transition-all duration-300 group"
+                aria-label="Back to Home">
+                <svg
+                    className="w-6 h-6 text-white group-hover:text-gray-200 transition-colors"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                    />
+                </svg>
+            </button>
+
+            <div className="py-16">
+                <div className="flex flex-col items-center gap-16 px-8">
+                    <h1 className="text-6xl md:text-7xl lg:text-8xl font-['Cattedrale-Demo-Regular'] text-white z-10">
+                        Our Sponsors
+                    </h1>
+
+                    {/* Sponsors Grid - 2 per row on mobile, 4 on desktop */}
+                    <div className="w-full max-w-6xl z-10">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                            {allSponsors.map((sponsor, index) => (
+                                <div
+                                    key={index}
+                                    className="flex justify-center">
+                                    <SponsersPageUi
+                                        imageURL={sponsor.src}
+                                        alt={sponsor.name}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Footer */}
+            <Footer />
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Sponsors;
