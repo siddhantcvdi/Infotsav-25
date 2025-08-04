@@ -72,17 +72,16 @@ const MainSponsors: React.FC = () => {
     return (
         <section className="relative w-full h-screen max-h-[800px] bg-gradient-to-b from-black to-[#090928] text-white overflow-hidden">
             {/* Stars Background */}
-            <img
+            {/* <img
                 src="/assets/Images/Home/Sponsers/stars.png"
                 alt="Stars Background"
                 className="opacity-20 inset-0 w-full h-full object-cove absolute z[-1]"
-            />
+            /> */}
 
             <h2 className="text-7xl max-md:text-5xl font-cattedrale text-center pt-12 relative z-10">
                 SPONSORS
             </h2>
 
-            {/* Eyes - Desktop Only */}
             <div className="hidden md:flex justify-center gap-12 mt-10 relative z-10">
                 <div className="w-[13%] max-sm:w-[30%] max-md:w-[20%] aspect-square  bg-white/10 border-white/20 border-[3px] rounded-full" />
                 <div className="w-[13%] max-sm:w-[30%] max-md:w-[20%] aspect-square  bg-white/10 border-white/20 border-[3px] rounded-full" />
