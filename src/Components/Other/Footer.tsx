@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="w-full relative bg-black/25 overflow-hidden py-8 border-t-6 border-blue-700/10 poppins-thin">
+        <footer className="w-full relative bg-black/25 overflow-hidden py-8 max-sm:py-10 border-blue-700/10 poppins-thin">
             {/* Background Image */}
             <img
                 className="absolute inset-0 w-full h-full object-cover"
@@ -9,7 +9,7 @@ export default function Footer() {
             />
 
             {/* Main Content Container */}
-            <div className="relative z-10 w-full mx-auto px-[10%] flex flex-col items-stretch justify-center text-center ">
+            <div className="relative z-10 w-full mx-auto px-[10%] flex flex-col items-stretch justify-center max-md:items-center text-center ">
                 {/* Get In Touch Title */}
                 <h2 className="text-white text-6xl md:text-7xl mb-8 font-cattedrale">
                     Get In Touch
@@ -36,7 +36,7 @@ export default function Footer() {
                 </div>
 
                 {/* Three Column Layout */}
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 lg:gap-8 mb-16">
+                <div className="flex flex-col lg:flex-row justify-between items-start max-md:items-center lg:items-center gap-12 lg:gap-8 mb-16">
                     {/* Left: Join Us Now */}
                     <div className="flex flex-col justify-center items-center">
                         <h3 className="text-white text-3xl md:text-4xl capitalize mb-6">
@@ -51,9 +51,9 @@ export default function Footer() {
                     </div>
 
                     {/* Center: Logo */}
-                    <div className="flex ">
+                    <div className="flex md:ml-16">
                         <img
-                            className="w-15 ml-10 h-15 scale-105"
+                            className="w-15 h-15 scale-105"
                             src="/assets/Images/Home/Footer/logo.png"
                             alt="Infotsav Logo"
                         />
@@ -66,12 +66,12 @@ export default function Footer() {
                         </h3>
                         <div className="space-y-2 text-white text-base w-full ">
                             <div className="flex gap-4 w-full ">
-                                <span>Samyak Choudhary:</span>
-                                <span>9999999999</span>
+                                <span>Samyak Choudhary :</span>
+                                <span>+91 9993148060</span>
                             </div>
-                            <div className="flex gap-4 ">
-                                <span>Shashank Gour:</span>
-                                <span>9999999999</span>
+                            <div className="flex gap-4 w-full justify-between ">
+                                <span>Shashank Gour :</span>
+                                <span>+91 9303332369</span>
                             </div>
                         </div>
                     </div>

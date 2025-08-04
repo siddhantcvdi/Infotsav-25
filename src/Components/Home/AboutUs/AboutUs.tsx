@@ -10,7 +10,7 @@ const AboutUs = () => {
       />
       {/* Background Blur Image (Teal image instead of div gradient) */}
       <img
-        src="/assets/Backgrounds/about-blur.png"
+        src="/assets/Backgrounds/bg-clouds.svg"
         alt="Blur Background"
         className="absolute left-1/2 -translate-x-1/2 h-full w-full object-cover z-[5] pointer-events-none select-none"
         loading="lazy"
