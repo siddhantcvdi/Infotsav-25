@@ -4,7 +4,7 @@ import Home from './Pages/Home';
 import MainLayout from './Layouts/MainLayout';
 import Error404 from './Components/Other/Error404';
 import Sponsors from './Pages/Sponsors';
-import CommingSoon from './Pages/CommingSoon';
+import ComingSoon from './Pages/ComingSoon';
 
 function App() {
     return (
@@ -12,10 +12,10 @@ function App() {
             <MainLayout>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/events" element={<CommingSoon />} />
+                    <Route path="/events" element={<ComingSoon />} />
                     <Route path="/sponsors" element={<Sponsors />} />
-                    <Route path="/ambassador" element={<CommingSoon />} />
-                    <Route path="/contact" element={<CommingSoon />} />
+                    <Route path="/ambassador" element={<ComingSoon />} />
+                    <Route path="/contact" element={<ComingSoon />} />
                     <Route path="*" element={<Error404 />} />
                 </Routes>
             </MainLayout>

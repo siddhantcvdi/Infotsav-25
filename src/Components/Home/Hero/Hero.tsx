@@ -2,12 +2,14 @@ import SvgImageMap from "./SvgImageMap";
 import { useMediaQuery } from "react-responsive";
 import useMobileMenuStore from "@/stores/MobileMenuStore";
 
-const areas: {
+interface Area{
   name: string;
   href: string;
   coords: [number, number][];
   style: { transition: string };
-}[] = [
+}
+
+const areas: Area[] = [
   {
     name: "Area 1",
     href: "/events",
@@ -65,6 +67,24 @@ const areas: {
     },
   },
 ];
+
+const registerArea: Area[] = [
+  {
+  name: "Area 5",
+  href: "/register",
+  coords: [
+    [31, 126],
+    [62, 100],
+    [192, 103],
+    [220, 128],
+    [194, 153],
+    [66, 155],
+  ],
+  style: {
+    transition: "fill 0.2s, stroke 0.2s",
+  },
+}
+]
 
 const Hero = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -125,12 +145,25 @@ const Hero = () => {
           className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10 max-md:hidden"
           alt="Sign Board"
         />
+        <img
+          src="/assets/Images/register-sign.svg"
+          className="block w-48 bottom-0 scale-115 left-[17%] h-auto absolute z-10 max-md:hidden"
+          alt="Sign Board"
+        />
         <div className="absolute bottom-10 scale-150 right-[15%] z-30 w-48">
           <SvgImageMap
             src="/assets/Images/sign-board.svg"
             alt="Interactive Map"
             className="w-full h-auto max-sm:hidden"
             areas={areas}
+          />
+        </div>
+        <div className="absolute bottom-0 scale-115 left-[17%] z-30 w-48">
+          <SvgImageMap
+            src="/assets/Images/register-sign.svg"
+            alt="Interactive Map"
+            className="w-full h-auto max-sm:hidden"
+            areas={registerArea}
           />
         </div>
       </div>
