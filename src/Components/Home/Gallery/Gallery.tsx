@@ -72,7 +72,14 @@ const Gallery = () => {
     },
   ];
   return (
-    <div className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center p-6">
+    <div
+      className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center p-6 overflow-y-scroll"
+      style={{
+        overflow: "scroll",
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none", // IE 10+
+      }}
+    >
       <Masonry
         items={items}
         ease="power3.out"
