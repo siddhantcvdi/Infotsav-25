@@ -5,69 +5,69 @@ const Gallery = () => {
   const items = [
     {
       id: "1",
-      img: "/assets/Images/Gallery/EventImages/Closing_ceremony.JPG",
-      url: "/assets/Images/Gallery/EventImages/Closing_ceremony.JPG",
+      img: "/assets/Images/Home/Gallery/EventImages/Closing_ceremony.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Closing_ceremony.JPG",
       height: 400,
     },
     {
       id: "2",
-      img: "/assets/Images/Gallery/EventImages/Code_rush.JPG",
-      url: "/assets/Images/Gallery/EventImages/Code_rush.JPG",
+      img: "/assets/Images/Home/Gallery/EventImages/Code_rush.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Code_rush.JPG",
       height: 250,
     },
     {
       id: "3",
-      img: "/assets/Images/Gallery/EventImages/Hackatron.jpg",
-      url: "/assets/Images/Gallery/EventImages/Hackatron.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/Hackatron.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Hackatron.JPG",
       height: 600,
     },
 
     {
       id: "4",
-      img: "/assets/Images/Gallery/EventImages/Pinnacle.jpg",
-      url: "/assets/Images/Gallery/EventImages/Pinnacle.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/Pinnacle.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Pinnacle.JPG",
       height: 600,
     },
 
     {
       id: "5",
-      img: "/assets/Images/Gallery/EventImages/Pronite_1.jpg",
-      url: "/assets/Images/Gallery/EventImages/Pronite_1.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/Pronite_1.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Pronite_1.JPG",
       height: 600,
     },
 
     {
       id: "6",
-      img: "/assets/Images/Gallery/EventImages/Pronite_2.jpg",
-      url: "/assets/Images/Gallery/EventImages/Pronite_2.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/Pronite_2.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Pronite_2.JPG",
       height: 600,
     },
 
     {
       id: "7",
-      img: "/assets/Images/Gallery/EventImages/Pronite_3.jpg",
-      url: "/assets/Images/Gallery/EventImages/Pronite_3.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/Pronite_3.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Pronite_3.JPG",
       height: 600,
     },
 
     {
       id: "8",
-      img: "/assets/Images/Gallery/EventImages/Pronite_4.jpg",
-      url: "/assets/Images/Gallery/EventImages/Pronite_4.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/Pronite_4.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Pronite_4.JPG",
       height: 600,
     },
 
     {
       id: "9",
-      img: "/assets/Images/Gallery/EventImages/RoboMaze.jpg",
-      url: "/assets/Images/Gallery/EventImages/RoboMaze.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/RoboMaze.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/RoboMaze.JPG",
       height: 600,
     },
 
     {
       id: "10",
-      img: "/assets/Images/Gallery/EventImages/Robowars.jpg",
-      url: "/assets/Images/Gallery/EventImages/Robowars.jpg",
+      img: "/assets/Images/Home/Gallery/EventImages/Robowars.JPG",
+      url: "/assets/Images/Home/Gallery/EventImages/Robowars.JPG",
       height: 600,
     },
   ];
