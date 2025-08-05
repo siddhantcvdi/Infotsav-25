@@ -55,7 +55,6 @@ const Gallery = () => {
       url: 'https://res.cloudinary.com/dih6gwkau/image/upload/v1754416640/Pronite_4_uqah6u.jpg',
       height: 600,
     },
-
     {
       id: '9',
       img: 'https://res.cloudinary.com/dih6gwkau/image/upload/v1754416642/RoboMaze_jznorw.jpg',
@@ -72,12 +71,15 @@ const Gallery = () => {
   ];
   return (
     <div
-      className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center p-6 overflow-y-scroll"
+      className="w-full h-[900px] relative bg-stone-950 overflow-hidden max-md:h-dvh flex items-center justify-center p-6 overflow-y-scroll flex-col gap-8"
       style={{
         overflow: 'scroll',
         scrollbarWidth: 'none', // Firefox
         msOverflowStyle: 'none', // IE 10+
       }}>
+      <h2 className="text-white text-6xl md:text-7xl lg:text-8xl font-cattedrale">
+        Gallery
+      </h2>
       <Masonry
         items={items}
         ease="power3.out"

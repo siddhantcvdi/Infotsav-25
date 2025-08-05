@@ -1,6 +1,6 @@
 const IntroVideo = () => {
   return (
-    <div className="flex-col w-full h-[900px] max-sm:h-[300px] max-md:h-[400px] max-sm:scale-115 relative bg-black overflow-hidden flex">
+    <div className="flex-col w-full h-[980px] max-sm:h-[300px] max-md:h-[400px] max-sm:scale-115 relative bg-black overflow-hidden flex">
       <img
         src="/assets/Backgrounds/blur-video.svg"
         className="w-full h-full absolute object-cover"
@@ -8,6 +8,9 @@ const IntroVideo = () => {
       />
       <div className="absolute top-0 bg-gradient-to-b from-black/20 to-transparent h-1/2 w-full"></div>
       {/* Main video holder frame */}
+      <h2 className="text-white text-6xl md:text-7xl lg:text-8xl font-cattedrale z-20 justify-center items-center mx-auto">
+        The Story so Far
+      </h2>
       <div className="absolute w-full max-w-7xl mx-auto px-4 sm:px-10 md:px-12 flex justify-center bottom-0 -translate-x-1/2 left-1/2">
         <img
           className="w-full max-w-6xl h-auto object-contain"
