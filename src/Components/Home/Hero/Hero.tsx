@@ -1,8 +1,9 @@
-import SvgImageMap from "./SvgImageMap";
-import { useMediaQuery } from "react-responsive";
-import useMobileMenuStore from "@/stores/MobileMenuStore";
+import SvgImageMap from './SvgImageMap';
+import { useMediaQuery } from 'react-responsive';
+import useMobileMenuStore from '@/stores/MobileMenuStore';
+import { useState, useEffect } from 'react';
 
-interface Area{
+interface Area {
   name: string;
   href: string;
   coords: [number, number][];
@@ -11,8 +12,8 @@ interface Area{
 
 const areas: Area[] = [
   {
-    name: "Area 1",
-    href: "/events",
+    name: 'Area 1',
+    href: '/events',
     coords: [
       [117, 176],
       [277, 178],
@@ -21,12 +22,12 @@ const areas: Area[] = [
       [120, 132],
     ],
     style: {
-      transition: "fill 0.2s, stroke 0.2s",
+      transition: 'fill 0.2s, stroke 0.2s',
     },
   },
   {
-    name: "Area 2",
-    href: "/sponsors",
+    name: 'Area 2',
+    href: '/sponsors',
     coords: [
       [71, 217],
       [109, 190],
@@ -35,12 +36,12 @@ const areas: Area[] = [
       [110, 245],
     ],
     style: {
-      transition: "fill 0.2s, stroke 0.2s",
+      transition: 'fill 0.2s, stroke 0.2s',
     },
   },
   {
-    name: "Area 3",
-    href: "/ambassador",
+    name: 'Area 3',
+    href: '/ambassador',
     coords: [
       [276, 263],
       [311, 285],
@@ -49,12 +50,12 @@ const areas: Area[] = [
       [100, 270],
     ],
     style: {
-      transition: "fill 0.2s, stroke 0.2s",
+      transition: 'fill 0.2s, stroke 0.2s',
     },
   },
   {
-    name: "Area 4",
-    href: "/contact",
+    name: 'Area 4',
+    href: '/contact',
     coords: [
       [84, 358],
       [114, 333],
@@ -63,37 +64,54 @@ const areas: Area[] = [
       [112, 383],
     ],
     style: {
-      transition: "fill 0.2s, stroke 0.2s",
+      transition: 'fill 0.2s, stroke 0.2s',
     },
   },
 ];
 
 const registerArea: Area[] = [
   {
-  name: "Area 5",
-  href: "/register",
-  coords: [
-    [31, 126],
-    [62, 100],
-    [192, 103],
-    [220, 128],
-    [194, 153],
-    [66, 155],
-  ],
-  style: {
-    transition: "fill 0.2s, stroke 0.2s",
+    name: 'Area 5',
+    href: '/register',
+    coords: [
+      [31, 126],
+      [62, 100],
+      [192, 103],
+      [220, 128],
+      [194, 153],
+      [66, 155],
+    ],
+    style: {
+      transition: 'fill 0.2s, stroke 0.2s',
+    },
   },
-}
-]
+];
 
 const Hero = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-  const toggleMobileMenu = useMobileMenuStore((state) => state.toggleMobileMenu);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const toggleMobileMenu = useMobileMenuStore(
+    (state) => state.toggleMobileMenu
+  );
   const handleMobileMenu = () => {
     if (isMobile) {
       toggleMobileMenu();
     }
   };
+
+  // Parallax calculations
+  const moonParallax = scrollY * 0.5; // Moon moves slower
+  const logoParallax = scrollY * 0.5; // Logo moves even slower
   return (
     <>
       <div className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center">
@@ -105,7 +123,12 @@ const Hero = () => {
           className="absolute w-full h-full object-cover"
         />
         {/* <img src="/assets/Images/hero-blur2.png" alt="" className="absolute w-full h-full object-cover" /> */}
-        <div className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10 max-sm:-bottom-25">
+        <div
+          className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10 max-sm:-bottom-25"
+          style={{
+            transform: `translateY(${moonParallax}px)`,
+            transition: 'transform 0.1s ease-out',
+          }}>
           <div className="w-full h-full absolute bg-red-600/30 rounded-full" />
           <img
             className="object-cover z-10 scale-108 w-full h-full -mt-32 ml-4"
@@ -114,20 +137,28 @@ const Hero = () => {
           />
         </div>
         <img
+          src="/assets/Images/Infotsav25.svg"
+          className="z-20 bottom-30 scale-85 max-sm:bottom-[22%] absolute object-cover"
+          style={{
+            transform: `translateY(${logoParallax}px)`,
+            transition: 'transform 0.1s ease-out',
+          }}
+          alt=""
+        />
+        <img
           className="absolute z-20 max-md:-bottom-10 h-full w-full overflow-hidden object-cover"
-          src={"/assets/Images/trees-bg.png"}
+          src={'/assets/Images/trees-bg.png'}
         />
         <div
           className="top-0 absolute w-52 z-20"
-          onClick={() => handleMobileMenu()}
-        >
+          onClick={() => handleMobileMenu()}>
           <img
             src="/assets/Images/hanging-board.svg"
             className="z-20"
             alt="ground"
           />
           <p className="text-white text-center top-[62px] left-[78px] text-2xl absolute font-realwood opacity-80">
-            {isMobile ? "Menu" : "Home"}
+            {isMobile ? 'Menu' : 'Home'}
           </p>
         </div>
         <img
@@ -135,11 +166,7 @@ const Hero = () => {
           className="opacity-10 z-0 w-full top-5 h-full absolute object-cover"
           alt=""
         />
-        <img
-          src="/assets/Images/Infotsav25.svg"
-          className="z-20 bottom-30 scale-85 max-sm:bottom-[22%] absolute object-cover"
-          alt=""
-        />
+
         <img
           src="/assets/Images/sign-board.svg"
           className="block w-48 bottom-10 scale-150 right-[15%] h-auto absolute z-10 max-md:hidden"
