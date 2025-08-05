@@ -18,7 +18,7 @@ const Gallery = () => {
       id: "3",
       img: "/assets/Images/Home/Gallery/EventImages/Hackatron.JPG",
       url: "/assets/Images/Home/Gallery/EventImages/Hackatron.JPG",
-      height: 600,
+      height: 700,
     },
 
     {
@@ -32,7 +32,7 @@ const Gallery = () => {
       id: "5",
       img: "/assets/Images/Home/Gallery/EventImages/Pronite_1.JPG",
       url: "/assets/Images/Home/Gallery/EventImages/Pronite_1.JPG",
-      height: 600,
+      height: 800,
     },
 
     {
@@ -55,19 +55,18 @@ const Gallery = () => {
       url: "/assets/Images/Home/Gallery/EventImages/Pronite_4.JPG",
       height: 680,
     },
-
     {
       id: "9",
       img: "/assets/Images/Home/Gallery/EventImages/RoboMaze.JPG",
       url: "/assets/Images/Home/Gallery/EventImages/RoboMaze.JPG",
-      height: 680,
+      height: 580,
     },
 
     {
       id: "10",
       img: "/assets/Images/Home/Gallery/EventImages/Robowars.JPG",
       url: "/assets/Images/Home/Gallery/EventImages/Robowars.JPG",
-      height: 680,
+      height: 480,
     },
     {
       id: "11",
@@ -84,13 +83,16 @@ const Gallery = () => {
   ];
   return (
     <div
-      className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center p-6 overflow-y-scroll"
+      className="w-full h-[900px] relative bg-stone-950 overflow-hidden max-md:h-dvh flex items-center justify-center p-6 overflow-y-scroll flex-col gap-8"
       style={{
         overflow: "scroll",
         scrollbarWidth: "none", // Firefox
         msOverflowStyle: "none", // IE 10+
       }}
     >
+      <h2 className="text-white text-6xl md:text-7xl lg:text-8xl font-cattedrale">
+        Gallery
+      </h2>
       <Masonry
         items={items}
         ease="power3.out"
