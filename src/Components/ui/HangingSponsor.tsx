@@ -9,7 +9,7 @@ const HangingSponsor = ({ imageURL }: HangingSponsorProps) => {
                 <img
                     src={imageURL}
                     alt="Sponsor"
-                    className="w-[60%] h-[60%] object-contain"
+                    className="w-full h-full object-contain"
                 />
             )}
         </div>

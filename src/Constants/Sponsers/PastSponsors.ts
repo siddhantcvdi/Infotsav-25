@@ -47,6 +47,19 @@ import UdupisKitchen24 from '/assets/Images/Sponsers/PastSponsers/24/UdupisKitch
 import Unstop24 from '/assets/Images/Sponsers/PastSponsers/24/unstop.png';
 import Wolfram24 from '/assets/Images/Sponsers/PastSponsers/24/wolfram.png';
 
+// Other Sponsors imports
+import CocaCola from '/assets/Images/Home/Sponsers/otherSponsers/CocaCola.png';
+import MacD from '/assets/Images/Home/Sponsers/otherSponsers/MacD.png';
+import PizzaHutOther from '/assets/Images/Home/Sponsers/otherSponsers/PizzaHut.png';
+import Samsung from '/assets/Images/Home/Sponsers/otherSponsers/Samsung.png';
+import SwiggyOther from '/assets/Images/Home/Sponsers/otherSponsers/Swiggy.png';
+import PayTMOther from '/assets/Images/Home/Sponsers/otherSponsers/paytm.png';
+import UnstopOther from '/assets/Images/Home/Sponsers/otherSponsers/unstop.png';
+
+// Home Title
+import SBIOther from '/assets/Images/Home/Sponsers/titleSponsers/SBI.png';
+import UnionBank from '/assets/Images/Home/Sponsers/titleSponsers/UnionBank.png';
+
 export interface Sponsor {
     name: string;
     src: string;
@@ -185,20 +198,17 @@ export const currentSponsers: generalSponser[] = [
     { name: 'ChaiChowk', src: ChaiChowk24, alt: 'CHAICHOWK LOGO' },
 ];
 
+export const homeTitleSponsers: generalSponser[] = [
+    { name: 'SBI', src: SBIOther, alt: 'SBI LOGO' },
+    { name: 'UnionBank', src: UnionBank, alt: "UNIONBANK'S LOGO" },
+];
+
 export const homePageMobileViewSponsers: generalSponser[] = [
-    { name: 'Devfolio', src: Devfolio24, alt: 'DEVFOLIO LOGO' },
-    { name: 'Polygon', src: Polygon24, alt: 'POLYGON LOGO' },
-    { name: 'EthIndia', src: EthIndia24, alt: 'ETHINDIA LOGO' },
-    { name: 'Internshala', src: Internshala24, alt: 'INTERNSHALA LOGO' },
-    { name: 'CanaraBank', src: CanaraBank24, alt: 'CANARABANK LOGO' },
-    { name: 'Unstop', src: Unstop24, alt: 'UNSTOP LOGO' },
-    { name: 'Sbi', src: SBI24, alt: 'SBI LOGO' },
-    { name: 'MyFM', src: MyFM19, alt: 'MYFM LOGO' },
-    { name: 'EaseMyTrip', src: EaseMyTrip24, alt: 'EASEMYTRIP LOGO' },
-    { name: 'PizzaHut', src: PizzaHut24, alt: 'PIZZAHUT LOGO' },
-    { name: 'codechef', src: CodeChef24, alt: 'CODECHEF LOGO' },
-    { name: 'PayTM', src: PayTM19, alt: 'PAYTM LOGO' },
-    { name: 'Swiggy', src: Swiggy19, alt: 'SWIGGY LOGO' },
-    { name: 'Digital Ocean', src: DigitalOcean19, alt: 'DIGITAL OCEAN LOGO' },
-    { name: 'hackerearth', src: HackerEarth24, alt: 'HACKEREARTH LOGO' },
+    { name: 'CocaCola', src: CocaCola, alt: 'COCA COLA LOGO' },
+    { name: 'MacD', src: MacD, alt: "MCDONALD'S LOGO" },
+    { name: 'PizzaHut', src: PizzaHutOther, alt: 'PIZZA HUT LOGO' },
+    { name: 'Samsung', src: Samsung, alt: 'SAMSUNG LOGO' },
+    { name: 'Swiggy', src: SwiggyOther, alt: 'SWIGGY LOGO' },
+    { name: 'PayTM', src: PayTMOther, alt: 'PAYTM LOGO' },
+    { name: 'Unstop', src: UnstopOther, alt: 'UNSTOP LOGO' },
 ];
