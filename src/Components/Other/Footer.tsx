@@ -18,21 +18,36 @@ export default function Footer() {
                 {/* Social Media Icons */}
                 <div className="flex justify-center items-center gap-8 mb-16">
                     {/* LinkedIn */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/linkedin.svg" />
-                    </div>
-                    {/* Insta */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/insta.svg" />
-                    </div>
-                    {/* Twitter/X */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/x.svg" />
-                    </div>
+                    <a
+                        href="https://www.linkedin.com/company/infotsav-iiit-gwalior/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                        <img
+                            src="/assets/Images/Home/Footer/linkedin.svg"
+                            alt="LinkedIn"
+                        />
+                    </a>
+                    {/* Instagram */}
+                    <a
+                        href="https://www.instagram.com/infotsav_iiitm/?hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                        <img
+                            src="/assets/Images/Home/Footer/insta.svg"
+                            alt="Instagram"
+                        />
+                    </a>
                     {/* Email */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/email.svg" />
-                    </div>
+                    <a
+                        href="mailto:infotsav@iiitm.ac.in"
+                        className="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                        <img
+                            src="/assets/Images/Home/Footer/email.svg"
+                            alt="Email"
+                        />
+                    </a>
                 </div>
 
                 {/* Three Column Layout */}
