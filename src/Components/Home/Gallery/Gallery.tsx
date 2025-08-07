@@ -77,7 +77,7 @@ const Gallery = () => {
         scrollbarWidth: 'none', // Firefox
         msOverflowStyle: 'none', // IE 10+
       }}>
-      <h2 className="text-white text-6xl md:text-7xl lg:text-8xl font-cattedrale">
+      <h2 className="text-red-600 text-6xl md:text-7xl lg:text-8xl font-cattedrale">
         Gallery
       </h2>
       <Masonry
