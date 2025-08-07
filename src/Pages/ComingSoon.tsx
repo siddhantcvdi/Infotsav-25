@@ -20,7 +20,7 @@ const ComingSoon: React.FC = () => {
 
             {/* Mobile Image */}
             <img
-                src="/assets/Images/ComingSoon/ComingSoonMobile.svg"
+                src="/assets/Images/ComingSoon/ComingSoonPhone.svg"
                 className="block md:hidden w-full h-full object-cover"
                 alt="Coming Soon Mobile"
             />
