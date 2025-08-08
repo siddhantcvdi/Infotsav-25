@@ -5,52 +5,39 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Font preloading for better performance */
+body {
+    background-color: black;
+}
+
 @font-face {
     font-family: 'benguiat';
-    src: url('/assets/Fonts/Benguiat Bold.ttf') format('truetype');
+    src: url('/Fonts/benguiat.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 @font-face {
     font-family: 'cattedrale';
-    src: url('/assets/Fonts/Cattedrale-Demo-Regular.ttf') format('truetype');
+    src: url('/Fonts/cattedrale.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 @font-face {
     font-family: 'naluka';
-    src: url('/assets/Fonts/Naluka.ttf') format('truetype');
+    src: url('/Fonts/naluka.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 @font-face {
     font-family: 'stranger';
-    src: url('/assets/Fonts/Stranger Things Outlined.ttf') format('truetype');
+    src: url('/Fonts/stranger.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 @font-face {
     font-family: 'realwood';
     src: url('/Fonts/realwood.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
-}
-
-body {
-    background-color: black;
-    /* Prevent flash of unstyled content */
-    visibility: hidden;
-}
-
-/* Show body after fonts are loaded */
-body.fonts-loaded {
-    visibility: visible;
 }
 
 .poppins-thin {
