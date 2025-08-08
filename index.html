@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infotsav 25</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Infotsav 25</title>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <!-- Preload critical fonts -->
+        <link
+            rel="preload"
+            href="/assets/Fonts/Benguiat Bold.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+        <link
+            rel="preload"
+            href="/assets/Fonts/Cattedrale-Demo-Regular.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+        <link
+            rel="preload"
+            href="/assets/Fonts/Naluka.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+        <link
+            rel="preload"
+            href="/assets/Fonts/Stranger Things Outlined.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+
+        <!-- Preload critical images -->
+        <link rel="preload" href="/assets/Images/Infotsav25.svg" as="image" />
+        <link rel="preload" href="/assets/Images/moon.svg" as="image" />
+        <link rel="preload" href="/assets/Images/hero-blur1.svg" as="image" />
+        <link rel="preload" href="/assets/Images/trees-bg.png" as="image" />
+
+        <!-- DNS prefetch for external resources -->
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+        <!-- Optimize loading -->
+        <meta name="theme-color" content="#000000" />
+        <meta
+            name="description"
+            content="Infotsav 25 - The Ultimate Tech Festival" />
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>
