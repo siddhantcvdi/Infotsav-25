@@ -168,16 +168,17 @@ export const ASSET_MANIFEST = {
         error: ['/assets/Images/404.svg'],
     },
     fonts: [
-        { family: 'benguiat', url: '/assets/Fonts/Benguiat Bold.ttf' },
+        { family: 'benguiat', url: '/Fonts/benguiat.ttf' },
         {
             family: 'cattedrale',
-            url: '/assets/Fonts/Cattedrale-Demo-Regular.ttf',
+            url: '/Fonts/cattedrale.ttf',
         },
-        { family: 'naluka', url: '/assets/Fonts/Naluka.ttf' },
+        { family: 'naluka', url: '/Fonts/naluka.ttf' },
         {
             family: 'stranger',
-            url: '/assets/Fonts/Stranger Things Outlined.ttf',
+            url: '/Fonts/stranger.ttf',
         },
+        { family: 'realwood', url: '/Fonts/realwood.otf' },
     ],
 };
 

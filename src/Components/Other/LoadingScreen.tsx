@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-    preloadCriticalAssets,
-    getAllImages,
-    ASSET_MANIFEST,
-} from '@/lib/assetPreloader';
+import { getAllImages, ASSET_MANIFEST } from '@/lib/assetPreloader';
+import { fontManager } from '@/lib/fontManager';
 
 interface LoadingScreenProps {
     onLoadingComplete: () => void;
@@ -16,48 +13,93 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     useEffect(() => {
         const totalAssets = getAllImages().length + ASSET_MANIFEST.fonts.length;
         let currentProgress = 0;
+        let loadedImages = 0;
+        let loadedFonts = 0;
 
-        const updateProgress = (increment: number = 1) => {
-            currentProgress += increment;
+        const updateProgress = (type: 'image' | 'font') => {
+            if (type === 'image') loadedImages++;
+            if (type === 'font') loadedFonts++;
+
+            currentProgress = loadedImages + loadedFonts;
             const progressPercent = Math.min(
                 Math.round((currentProgress / totalAssets) * 100),
                 100
             );
             setProgress(progressPercent);
 
-            // Update loading text based on progress
-            if (progressPercent < 20) {
+            // Update loading text based on progress and what's loading
+            if (progressPercent < 25) {
                 setLoadingText('Entering the Upside Down...');
-            } else if (progressPercent < 40) {
-                setLoadingText('Preparing experience...');
-            } else if (progressPercent < 60) {
-                setLoadingText('Configuring interface...');
-            } else if (progressPercent < 80) {
-                setLoadingText('Optimizing performance...');
+            } else if (progressPercent < 50) {
+                setLoadingText('Loading fonts...');
+            } else if (progressPercent < 75) {
+                setLoadingText('Preparing assets...');
             } else if (progressPercent < 95) {
-                setLoadingText('Almost ready...');
+                setLoadingText('Optimizing experience...');
             } else {
                 setLoadingText('Welcome to Infotsav 25!');
             }
         };
 
-        // Start preloading
-        preloadCriticalAssets()
-            .then(([images, fonts]) => {
+        // Start font loading first (priority for text rendering)
+        const loadFonts = async () => {
+            try {
+                // Use FontManager for better font handling
+                await fontManager.preloadWebsiteFonts();
+
+                // Update progress for each font
+                ASSET_MANIFEST.fonts.forEach(() => {
+                    updateProgress('font');
+                });
+
+                console.log('🎭 All fonts preloaded successfully!');
+            } catch (error) {
+                console.warn('⚠️ Some fonts failed to load:', error);
+                // Still update progress even if fonts fail
+                ASSET_MANIFEST.fonts.forEach(() => {
+                    updateProgress('font');
+                });
+            }
+        };
+
+        // Preload images
+        const loadImages = async () => {
+            const imagePromises = getAllImages().map((src) => {
+                return new Promise<void>((resolve) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        updateProgress('image');
+                        resolve();
+                    };
+                    img.onerror = () => {
+                        updateProgress('image'); // Still count as loaded
+                        resolve();
+                    };
+                    img.src = src;
+                });
+            });
+
+            await Promise.all(imagePromises);
+            console.log(`✅ All ${loadedImages} images preloaded!`);
+        };
+
+        // Load fonts and images in parallel
+        Promise.all([loadFonts(), loadImages()])
+            .then(() => {
                 console.log(
-                    `✅ Preloaded ${images.length} images and ${fonts.length} fonts`
+                    `🚀 All assets loaded: ${loadedImages} images, ${loadedFonts} fonts`
                 );
 
                 // Ensure we reach 100%
-                const remaining = totalAssets - currentProgress;
-                if (remaining > 0) {
-                    updateProgress(remaining);
+                if (currentProgress < totalAssets) {
+                    setProgress(100);
+                    setLoadingText('Welcome to Infotsav 25!');
                 }
 
                 // Small delay to show completion message
                 setTimeout(() => {
                     onLoadingComplete();
-                }, 1000);
+                }, 1200);
             })
             .catch((error) => {
                 console.warn('⚠️ Some assets failed to preload:', error);
@@ -65,19 +107,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
                 setTimeout(() => {
                     setProgress(100);
                     setLoadingText('Ready!');
-                    setTimeout(onLoadingComplete, 500);
+                    setTimeout(onLoadingComplete, 800);
                 }, 1000);
             });
 
-        // Simulate progress for individual asset loading
-        const progressInterval = setInterval(() => {
-            if (currentProgress < totalAssets * 0.9) {
-                updateProgress(0.5); // Slower increment for smooth animation
-            }
-        }, 100);
-
         return () => {
-            clearInterval(progressInterval);
+            // Cleanup if component unmounts
         };
     }, [onLoadingComplete]);
 
