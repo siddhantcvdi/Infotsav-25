@@ -105,6 +105,27 @@ const MainSponsors: React.FC = () => {
             {/* Mobile View - Simple Grid */}
             {isMobile && (
                 <div className="flex flex-col items-center mt-16 px-8 relative z-10 pb-8">
+                    {/* Title Sponsors for Mobile */}
+                    <div className="flex justify-center gap-6 mb-8">
+                        <div className="w-36 h-36 bg-white/10 border-white/20 border-[3px] rounded-full flex items-center justify-center p-2">
+                            <img
+                                src={homeTitleSponsers[0]?.src}
+                                alt={homeTitleSponsers[0]?.alt || 'SBI Logo'}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <div className="w-36 h-36 bg-white/10 border-white/20 border-[3px] rounded-full flex items-center justify-center p-2">
+                            <img
+                                src={homeTitleSponsers[1]?.src}
+                                alt={
+                                    homeTitleSponsers[1]?.alt ||
+                                    'Union Bank Logo'
+                                }
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </div>
+
                     {/* Create rows of 2 sponsors each */}
                     {Array.from(
                         {
