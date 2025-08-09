@@ -73,7 +73,7 @@ const MainSponsors: React.FC = () => {
     }, [isMobile]);
 
     return (
-        <section className="relative w-full h-screen max-h-[800px] bg-gradient-to-b from-black to-[#090928] text-white overflow-hidden">
+        <section className="relative w-full min-h-screen bg-gradient-to-b from-black to-[#090928] text-white overflow-hidden pb-16">
             {/* Stars Background */}
             {/* <img
                 src="/assets/Images/Home/Sponsers/stars.png"
@@ -104,24 +104,46 @@ const MainSponsors: React.FC = () => {
 
             {/* Mobile View - Simple Grid */}
             {isMobile && (
-                <div className="flex flex-col items-center mt-16 px-8 relative z-10">
-                    {/* Create rows of 3 sponsors each */}
+                <div className="flex flex-col items-center mt-16 px-8 relative z-10 pb-8">
+                    {/* Title Sponsors for Mobile */}
+                    <div className="flex justify-center gap-6 mb-8">
+                        <div className="w-36 h-36 bg-white/10 border-white/20 border-[3px] rounded-full flex items-center justify-center p-2">
+                            <img
+                                src={homeTitleSponsers[0]?.src}
+                                alt={homeTitleSponsers[0]?.alt || 'SBI Logo'}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <div className="w-36 h-36 bg-white/10 border-white/20 border-[3px] rounded-full flex items-center justify-center p-2">
+                            <img
+                                src={homeTitleSponsers[1]?.src}
+                                alt={
+                                    homeTitleSponsers[1]?.alt ||
+                                    'Union Bank Logo'
+                                }
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Create rows of 2 sponsors each */}
                     {Array.from(
                         {
                             length: Math.ceil(
-                                homePageMobileViewSponsers.length / 3
+                                homePageMobileViewSponsers.length / 2
                             ),
                         },
                         (_, rowIndex) => (
                             <div
                                 key={`row-${rowIndex}`}
-                                className="flex justify-center gap-8 mb-8">
+                                className="flex justify-center gap-6 mb-6">
                                 {homePageMobileViewSponsers
-                                    .slice(rowIndex * 3, rowIndex * 3 + 3)
+                                    .slice(rowIndex * 2, rowIndex * 2 + 2)
                                     .map((sponsor, index) => (
                                         <HangingSponsor
                                             key={`mobile-${rowIndex}-${index}`}
                                             imageURL={sponsor.src}
+                                            isMobile={true}
                                             // alt={sponsor.alt}
                                         />
                                     ))}
@@ -160,6 +182,7 @@ const MainSponsors: React.FC = () => {
                             <div className="w-0.5 h-8 bg-white" />
                             <HangingSponsor
                                 imageURL={homePageMobileViewSponsers[idx]?.src}
+                                isMobile={false}
                                 // alt={homePageMobileViewSponsers[idx]?.alt}
                             />
                         </div>
