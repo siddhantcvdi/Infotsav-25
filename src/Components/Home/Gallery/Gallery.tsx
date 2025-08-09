@@ -51,8 +51,8 @@ const Gallery = () => {
 
         {
             id: '8',
-            img: 'https://res.cloudinary.com/dih6gwkau/image/upload/v1754416640/Pronite_4_uqah6u.jpg',
-            url: 'https://res.cloudinary.com/dih6gwkau/image/upload/v1754416640/Pronite_4_uqah6u.jpg',
+            img: 'https://res.cloudinary.com/dih6gwkau/image/upload/v1754724882/aurora23_1_qa9ytg.jpg',
+            url: 'https://res.cloudinary.com/dih6gwkau/image/upload/v1754724882/aurora23_1_qa9ytg.jpg',
             height: 600,
         },
         {
