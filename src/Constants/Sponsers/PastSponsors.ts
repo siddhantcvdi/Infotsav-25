@@ -84,8 +84,28 @@ export const PastSponsors19: Sponsor[] = [
     { name: 'InkMonk', src: InkMonk19 },
     { name: 'KnowAFest', src: KnowAFest19 },
     { name: 'MyFM', src: MyFM19 },
+    // here
     { name: 'PayTM', src: PayTM19 },
     { name: 'Swiggy', src: Swiggy19 },
+    { name: 'The College Fever', src: TCF19 },
+];
+// Past Sponsors from 2019
+export const PastSponsors19Page: Sponsor[] = [
+    { name: 'CK', src: CK19 },
+    { name: 'CodeChef', src: CodeChef19 },
+    { name: 'Dainik Bhaskar', src: DainikBhaskar19 },
+    { name: 'Digital Ocean', src: DigitalOcean19 },
+    { name: 'FabHotels', src: FabHotels19 },
+    { name: 'FestPav', src: FestPav19 },
+    { name: 'Hack Society', src: HackSociety19 },
+    { name: 'HackerEarth', src: HackerEarth19 },
+    { name: 'InkMonk', src: InkMonk19 },
+    { name: 'KnowAFest', src: KnowAFest19 },
+    { name: 'MyFM', src: MyFM19 },
+    { name: 'PayTM', src: PayTM19 },
+    { name: 'Swiggy', src: Swiggy19 },
+    { name: 'SBI', src: SBIOther },
+    { name: 'UnionBank', src: UnionBank },
     { name: 'The College Fever', src: TCF19 },
 ];
 
@@ -97,8 +117,9 @@ export const PastSponsors24: generalSponser[] = [
         alt: 'AGGARWAL CATERERS LOGO',
     },
     { name: 'Aptos', src: Aptos24, alt: 'APTOS LOGO' },
-    { name: 'Chai Chowk', src: ChaiChowk24, alt: 'CHAI CHOWK LOGO' },
-    { name: 'CK', src: CK24, alt: 'CK LOGO' },
+
+    { name: 'SBI', src: SBIOther, alt: 'SBI LOGO' },
+    { name: 'UnionBank', src: UnionBank, alt: 'UNIONBANK LOGO' },
     { name: 'CodeChef', src: CodeChef24, alt: 'CODECHEF LOGO' },
     {
         name: 'The College Fever',
@@ -195,7 +216,7 @@ export const currentSponsers: generalSponser[] = [
         src: AggarawalCaterers24,
         alt: 'AGGARAWALCATERERS LOGO',
     },
-    { name: 'ChaiChowk', src: ChaiChowk24, alt: 'CHAICHOWK LOGO' },
+    { name: 'SBI', src: SBIOther, alt: 'SBI LOGO' },
 ];
 
 export const homeTitleSponsers: generalSponser[] = [

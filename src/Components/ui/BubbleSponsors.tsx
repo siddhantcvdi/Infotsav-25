@@ -6,6 +6,7 @@ import './bubble-ui.css';
 import SponsorBubble from '@/Components/ui/SponsorBubble';
 import {
     PastSponsors19,
+    PastSponsors19Page,
     PastSponsors24,
     homePageMobileViewSponsers,
     homeTitleSponsers,
@@ -20,9 +21,8 @@ const BubbleSponsors: React.FC<BubbleSponsorsProps> = ({ className = '' }) => {
 
     // Combine all sponsors from different years and categories
     const allSponsors = [
-        ...homeTitleSponsers,
         ...homePageMobileViewSponsers,
-        ...PastSponsors19,
+        ...PastSponsors19Page,
         ...PastSponsors24,
     ];
 
@@ -33,14 +33,14 @@ const BubbleSponsors: React.FC<BubbleSponsorsProps> = ({ className = '' }) => {
     );
 
     const options = {
-        size: 120,
-        minSize: 60,
-        gutter: 12,
+        size: 200,
+        minSize: 100,
+        gutter: 11,
         provideProps: true,
-        numCols: 8,
+        numCols: 9,
         fringeWidth: 60,
-        yRadius: 150,
-        xRadius: 150,
+        yRadius: 200,
+        xRadius: 170,
         cornerRadius: 75,
         showGuides: false,
         compact: true,

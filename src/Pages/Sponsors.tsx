@@ -8,7 +8,7 @@ const Sponsors = () => {
     return (
         <div className="relative w-full min-h-screen">
             {/* Teal Blur Background - Fixed positioning for scroll - Responsive */}
-            <div className="w-[800px] h-[800px] md:w-[1286px] md:h-[1286px] bg-gradient-to-b from-slate-950/90 to-teal-700/90 rounded-full blur-[253.95px] fixed -top-[400px] left-[10px] md:-top-[800px] md:left-[120px] z-0" />
+            <div className="w-[800px] h-[800px] md:w-[1286px] md:h-[1286px] bg-gradient-to-b from-slate-950/90 to-[#246485] rounded-full blur-[253.95px] fixed -top-[400px] left-[10px] md:-top-[800px] md:left-[120px] z-0" />
 
             {/* Back Arrow Button */}
             <button
@@ -32,13 +32,13 @@ const Sponsors = () => {
             <div className="py-16">
                 <div className="flex flex-col items-center gap-16 px-8">
                     <h1 className="text-6xl md:text-7xl lg:text-8xl font-cattedrale text-white z-10 text-center">
-                        Our Sponsors
+                        Past Sponsors
                     </h1>
 
                     {/* Interactive Bubble UI for Sponsors */}
-                    <div className="w-full max-w-7xl z-10">
-                        <BubbleSponsors className="w-full" />
-                    </div>
+                    {/* <div className="w-full max-w-7xl z-10"> */}
+                    <BubbleSponsors className="w-full" />
+                    {/* </div> */}
 
                     {/* Instructions */}
                     <div className="text-center z-10">

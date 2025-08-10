@@ -1,14 +1,12 @@
 /* Custom styles for BubbleUI component */
 .myBubbleUI {
     width: 100%;
-    max-width: 1000px;
-    height: 500px;
-    border-radius: 50px;
+
+    height: 800px;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
+    /* background: rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(20px);
+    position: center;
 }
 
 .child {
