@@ -136,7 +136,7 @@ const BubbleSponsors: React.FC<BubbleSponsorsProps> = ({ className = '' }) => {
                 {/* Selected sponsor display */}
                 {selectedSponsor && (
                     <div className="mt-8 text-center">
-                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 inline-block">
+                        <div className="rounded-lg p-4 inline-block">
                             <p className="text-white text-lg font-medium">
                                 Selected Sponsor:{' '}
                                 <span className="text-blue-400">

@@ -1,12 +1,10 @@
 /* Custom styles for BubbleUI component */
 .myBubbleUI {
     width: 100%;
-
     height: 800px;
     overflow: hidden;
-    /* background: rgba(0, 0, 0, 0.1); */
-    backdrop-filter: blur(20px);
-    position: center;
+    background: transparent; /* remove any glass background */
+    position: relative;
 }
 
 .child {
@@ -56,8 +54,8 @@
 /* Hover effects */
 .childComponent:hover {
     z-index: 10;
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
+    transform: scale(1.03);
+    transition: transform 0.15s ease;
 }
 
 /* Loading animation for bubbles */
