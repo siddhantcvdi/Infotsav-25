@@ -8,7 +8,7 @@ interface LoadingScreenProps {
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     const [progress, setProgress] = useState(0);
-    const [loadingText, setLoadingText] = useState('Initializing...');
+    // const [loadingText, setLoadingText] = useState('Initializing...');
 
     useEffect(() => {
         const totalAssets = getAllImages().length + ASSET_MANIFEST.fonts.length;
@@ -27,21 +27,19 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
             );
             setProgress(progressPercent);
 
-            // Update loading text based on progress and what's loading
-            if (progressPercent < 25) {
-                setLoadingText('Entering the Upside Down...');
-            } else if (progressPercent < 50) {
-                setLoadingText('Loading fonts...');
-            } else if (progressPercent < 75) {
-                setLoadingText('Preparing assets...');
-            } else if (progressPercent < 95) {
-                setLoadingText('Optimizing experience...');
-            } else {
-                setLoadingText('Welcome to Infotsav 25!');
-            }
+            // if (progressPercent < 25) {
+            //     setLoadingText('Entering the Upside Down...');
+            // } else if (progressPercent < 50) {
+            //     setLoadingText('Loading fonts...');
+            // } else if (progressPercent < 75) {
+            //     setLoadingText('Preparing assets...');
+            // } else if (progressPercent < 95) {
+            //     setLoadingText('Optimizing experience...');
+            // } else {
+            //     setLoadingText('Welcome to Infotsav 25!');
+            // }
         };
 
-        // Start font loading first (priority for text rendering)
         const loadFonts = async () => {
             try {
                 // Use FontManager for better font handling
@@ -93,7 +91,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
                 // Ensure we reach 100%
                 if (currentProgress < totalAssets) {
                     setProgress(100);
-                    setLoadingText('Welcome to Infotsav 25!');
+                    // setLoadingText('Welcome to Infotsav 25!');
                 }
 
                 // Small delay to show completion message
@@ -106,7 +104,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
                 // Continue anyway after a delay
                 setTimeout(() => {
                     setProgress(100);
-                    setLoadingText('Ready!');
+                    // setLoadingText('Ready!');
                     setTimeout(onLoadingComplete, 800);
                 }, 1000);
             });
@@ -148,34 +146,30 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
                         onLoad={() => console.log('Logo loaded')}
                     />
                 </div>
-
-                {/* Loading text with typewriter effect */}
+                {/* Loading text with typewriter effect
                 <h2 className="text-white text-xl md:text-2xl font-bold mb-8 tracking-wider font-stranger">
                     {loadingText}
-                </h2>
-
+                </h2> */}
                 {/* Progress bar container */}
                 <div className="w-full max-w-xs mx-auto mb-4 relative">
                     {/* Background glow */}
                     <div className="absolute inset-0 bg-red-500/20 blur-sm rounded-full"></div>
 
                     {/* Progress bar background */}
-                    <div className="relative bg-gray-800/50 rounded-full h-3 overflow-hidden border border-red-900/50">
-                        {/* Progress fill with animation */}
+                    {/* <div className="relative bg-gray-800/50 rounded-full h-3 overflow-hidden border border-red-900/50">
+                        Progress fill with animation 
                         <div
                             className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 h-full transition-all duration-300 ease-out relative overflow-hidden"
                             style={{ width: `${progress}%` }}>
-                            {/* Moving shimmer effect */}
+                            Moving shimmer effect 
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
-
                 {/* Progress percentage */}
                 <p className="text-red-400 text-lg font-bold font-mono mb-8">
                     {progress}%
                 </p>
-
                 {/* Loading dots animation */}
                 <div className="flex justify-center space-x-3">
                     {[...Array(3)].map((_, i) => (
@@ -188,7 +182,6 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
                             }}></div>
                     ))}
                 </div>
-
                 {/* Stranger Things style flicker */}
                 <div className="mt-8 text-red-400 text-xs opacity-60 font-mono animate-pulse">
                     Connection established...
