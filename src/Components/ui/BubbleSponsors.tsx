@@ -5,11 +5,9 @@ import 'react-bubble-ui/dist/index.css';
 import './bubble-ui.css';
 import SponsorBubble from '@/Components/ui/SponsorBubble';
 import {
-    PastSponsors19,
     PastSponsors19Page,
     PastSponsors24,
     homePageMobileViewSponsers,
-    homeTitleSponsers,
 } from '@/Constants/Sponsers/PastSponsors';
 
 interface BubbleSponsorsProps {

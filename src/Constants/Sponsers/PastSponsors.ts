@@ -17,7 +17,6 @@ import TCF19 from '/assets/Images/Sponsers/PastSponsers/19/The_College_Fever.png
 // Past Sponsors from 2024
 import AggarawalCaterers24 from '/assets/Images/Sponsers/PastSponsers/24/AggarawalCaterers.png';
 import Aptos24 from '/assets/Images/Sponsers/PastSponsers/24/Aptos.png';
-import ChaiChowk24 from '/assets/Images/Sponsers/PastSponsers/24/ChaiChowk.png';
 import CK24 from '/assets/Images/Sponsers/PastSponsers/24/ck.png';
 import CodeChef24 from '/assets/Images/Sponsers/PastSponsers/24/codechef.png';
 import CollegeFever24 from '/assets/Images/Sponsers/PastSponsers/24/collegefever.png';
