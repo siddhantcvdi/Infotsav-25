@@ -116,8 +116,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
 
     return (
         <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center overflow-hidden">
+            {/* Top red gradient */}
+            <div className="absolute top-0 left-0 right-0 justify-center h-32 bg-gradient-to-b from-red-900/30 to-transparent"></div>
+
             {/* Animated background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-black to-red-800/20 animate-pulse"></div>
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-black to-red-800/20 animate-pulse"></div> */}
 
             {/* Particle effect background */}
             <div className="absolute inset-0 opacity-10">
@@ -138,7 +141,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
             <div className="relative z-10 text-center max-w-md mx-auto px-4">
                 {/* Logo with glow effect */}
                 <div className="mb-8 relative">
-                    <div className="absolute inset-0 bg-red-500/20 blur-xl rounded-full"></div>
+                    {/* <div className="absolute inset-0 bg-red-500/20 blur-xl rounded-full"></div> */}
                     <img
                         src="/assets/Images/Infotsav25.svg"
                         alt="Infotsav 25"
@@ -153,7 +156,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
                 {/* Progress bar container */}
                 <div className="w-full max-w-xs mx-auto mb-4 relative">
                     {/* Background glow */}
-                    <div className="absolute inset-0 bg-red-500/20 blur-sm rounded-full"></div>
+                    {/* <div className="absolute inset-0 bg-red-500/20 blur-sm rounded-full"></div> */}
 
                     {/* Progress bar background */}
                     {/* <div className="relative bg-gray-800/50 rounded-full h-3 overflow-hidden border border-red-900/50">
