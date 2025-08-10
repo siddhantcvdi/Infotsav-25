@@ -37,14 +37,7 @@ function App() {
         <>
             <MainLayout>
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <LoadingScreen
-                                onLoadingComplete={handleLoadingComplete}
-                            />
-                        }
-                    />
+                    <Route path="/" element={<Home />} />
                     <Route path="/events" element={<ComingSoon />} />
                     <Route path="/register" element={<ComingSoon />} />
                     <Route path="/sponsors" element={<Sponsors />} />
