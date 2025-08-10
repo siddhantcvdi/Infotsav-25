@@ -77,11 +77,12 @@ const Gallery = () => {
                 msOverflowStyle: 'none', // IE 10+
             }}>
             {/* Fixed Gallery Title */}
-            <div className="sticky top-0 z-20 bg-stone-950 pt-6 pb-4 flex items-center justify-center">
+            <div className="sticky top-3 z-20 bg-stone-950 pt-6 pb-4 flex items-center justify-center">
                 <h2 className="text-red-600 text-6xl md:text-7xl lg:text-8xl font-cattedrale">
                     Gallery
                 </h2>
             </div>
+            <div className="h-4"></div>
 
             {/* Scrollable Content */}
             <div
