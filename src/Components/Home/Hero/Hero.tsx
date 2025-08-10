@@ -109,9 +109,9 @@ const Hero = () => {
         }
     };
 
-    // Parallax calculations
-    const moonParallax = scrollY * 0.5; // Moon moves slower
-    const logoParallax = scrollY * 0.5; // Logo moves even slower
+    // Parallax calculations - reduce effect on mobile for better performance
+    const moonParallax = isMobile ? scrollY * 0.4 : scrollY * 0.5; // Reduced parallax on mobile
+    const logoParallax = isMobile ? scrollY * 0.4 : scrollY * 0.5; // Reduced parallax on mobile
     return (
         <>
             <div className="w-full h-dvh max-h-[800px] relative bg-stone-950 overflow-hidden flex items-center justify-center">
@@ -126,8 +126,11 @@ const Hero = () => {
                 <div
                     className="w-[550px] h-[550px] flex justify-center items-center absolute -bottom-25 z-10 max-sm:-bottom-25"
                     style={{
-                        transform: `translateY(${moonParallax}px)`,
-                        transition: 'transform 0.05s linear',
+                        transform: `translate3d(0, ${moonParallax}px, 0)`,
+                        transition: isMobile
+                            ? 'none'
+                            : 'transform 0.1s ease-out',
+                        willChange: 'transform',
                     }}>
                     <div className="w-full h-full absolute bg-red-600/30 rounded-full" />
                     <img
@@ -140,8 +143,11 @@ const Hero = () => {
                     src="/assets/Images/Infotsav25.svg"
                     className="z-20 bottom-30 scale-85 max-sm:bottom-[22%] absolute object-cover"
                     style={{
-                        transform: `translateY(${logoParallax}px)`,
-                        transition: 'transform 0.05s linear',
+                        transform: `translate3d(0, ${logoParallax}px, 0)`,
+                        transition: isMobile
+                            ? 'none'
+                            : 'transform 0.1s ease-out',
+                        willChange: 'transform',
                     }}
                     alt=""
                 />
