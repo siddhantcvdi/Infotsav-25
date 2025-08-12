@@ -11,7 +11,7 @@ const IntroVideo = () => {
             <h2 className="text-white text-5xl text-center w-full md:text-7xl lg:text-8xl font-cattedrale z-50 absolute top-10 ">
                 The Story so Far
             </h2>
-            <div className="absolute w-full max-w-7xl mx-auto px-4 sm:px-10 md:px-12 flex justify-center bottom-0 -translate-x-1/2 left-1/2 z-20">
+            <div className="absolute w-full max-w-7xl mx-auto px-5 sm:px-10 md:px-12 flex justify-center bottom-0 -translate-x-1/2 left-1/2 z-20">
                 <img
                     className="w-full max-w-6xl h-auto object-contain z-25"
                     src="assets/Images/Home/Video/Billboard.svg"
