@@ -7,6 +7,7 @@ import Error404 from './Components/Other/Error404';
 import Sponsors from './Pages/Sponsors';
 import ComingSoon from './Pages/ComingSoon';
 import LoadingScreen from './Components/Other/LoadingScreen';
+import EventsPage from './Pages/EventsPage';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +39,7 @@ function App() {
             <MainLayout>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/events" element={<ComingSoon />} />
+                    <Route path="/events" element={<EventsPage />} />
                     <Route path="/register" element={<ComingSoon />} />
                     <Route path="/sponsors" element={<Sponsors />} />
                     <Route path="/ambassador" element={<ComingSoon />} />
