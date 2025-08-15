@@ -1,16 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg" sizes="64x64" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+        <meta charset="UTF-8" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Infotsav 25</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infotsav 25</title>
-</head>
+        <!-- Preload critical fonts -->
+        <link
+            rel="preload"
+            href="/Fonts/benguiat.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+        <link
+            rel="preload"
+            href="/Fonts/cattedrale.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+        <link
+            rel="preload"
+            href="/Fonts/naluka.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+        <link
+            rel="preload"
+            href="/Fonts/stranger.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin />
+        <link
+            rel="preload"
+            href="/Fonts/realwood.otf"
+            as="font"
+            type="font/otf"
+            crossorigin />
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+        <!-- Preload critical images -->
+        <link rel="preload" href="/assets/Images/Infotsav25.svg" as="image" />
+        <link rel="preload" href="/assets/Images/moon.svg" as="image" />
+        <link rel="preload" href="/assets/Images/hero-blur1.svg" as="image" />
+        <link rel="preload" href="/assets/Images/trees-bg.png" as="image" />
 
+        <!-- DNS prefetch for external resources -->
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+        <!-- Optimize loading -->
+        <meta name="theme-color" content="#000000" />
+        <meta
+            name="description"
+            content="Infotsav 25 - The ultimate techno-cultural festival featuring hackathons, coding competitions, robotics, cultural events, and tech exhibitions. Join us for an extraordinary blend of innovation, creativity, and celebration at one of the most anticipated tech festivals of the year." />
+        <meta
+            name="keywords"
+            content="Infotsav, tech festival, hackathon, coding competition, robotics, cultural events, technology, innovation, student festival, tech exhibition" />
+        <meta name="author" content="Infotsav Team" />
+
+        <!-- Open Graph meta tags for social sharing -->
+        <meta
+            property="og:title"
+            content="Infotsav 25 - Techno-Cultural Festival" />
+        <meta
+            property="og:description"
+            content="The ultimate techno-cultural festival featuring hackathons, coding competitions, robotics, cultural events and managerial events." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://infotsav.com" />
+        <meta property="og:image" content="/logo.png" />
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>

@@ -1,6 +1,19 @@
+import { useState } from 'react';
+
 export default function Footer() {
+    const [copiedNumber, setCopiedNumber] = useState<string | null>(null);
+
+    const copyToClipboard = async (text: string) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopiedNumber(text);
+            setTimeout(() => setCopiedNumber(null), 2000); // Clear after 2 seconds
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    };
     return (
-        <footer className="w-full relative bg-black/25 overflow-hidden py-8 border-t-6 border-blue-700/10 poppins-thin">
+        <footer className="w-full relative bg-black/25 overflow-hidden py-8 max-sm:py-10 border-blue-700/10 poppins-thin">
             {/* Background Image */}
             <img
                 className="absolute inset-0 w-full h-full object-cover"
@@ -9,34 +22,49 @@ export default function Footer() {
             />
 
             {/* Main Content Container */}
-            <div className="relative z-10 w-full mx-auto px-[10%] flex flex-col items-stretch justify-center text-center ">
+            <div className="relative z-10 w-full mx-auto px-[10%] flex flex-col items-stretch justify-center max-md:items-center text-center ">
                 {/* Get In Touch Title */}
-                <h2 className="text-white text-6xl md:text-7xl mb-8 font-cattedrale">
+                <h2 className="text-white text-6xl md:text-7xl mt-10 mb-8 font-cattedrale">
                     Get In Touch
                 </h2>
 
                 {/* Social Media Icons */}
-                <div className="flex justify-center items-center gap-8 mb-16">
+                <div className="flex justify-center items-center mt-8 gap-10 mb-16">
                     {/* LinkedIn */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/linkedin.svg" />
-                    </div>
-                    {/* Insta */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/insta.svg" />
-                    </div>
-                    {/* Twitter/X */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/x.svg" />
-                    </div>
+                    <a
+                        href="https://www.linkedin.com/company/infotsav-iiit-gwalior/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                        <img
+                            src="/assets/Images/Home/Footer/linkedin.svg"
+                            alt="LinkedIn"
+                        />
+                    </a>
+                    {/* Instagram */}
+                    <a
+                        href="https://www.instagram.com/infotsav_iiitm/?hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                        <img
+                            src="/assets/Images/Home/Footer/insta.svg"
+                            alt="Instagram"
+                        />
+                    </a>
                     {/* Email */}
-                    <div className="w-6 h-6">
-                        <img src="/assets/Images/Home/Footer/email.svg" />
-                    </div>
+                    <a
+                        href="mailto:infotsav@iiitm.ac.in"
+                        className="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                        <img
+                            src="/assets/Images/Home/Footer/email.svg"
+                            alt="Email"
+                        />
+                    </a>
                 </div>
 
                 {/* Three Column Layout */}
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 lg:gap-8 mb-16">
+                <div className="flex flex-col lg:flex-row justify-between items-start max-md:items-center lg:items-center gap-12 lg:gap-8 mb-16">
                     {/* Left: Join Us Now */}
                     <div className="flex flex-col justify-center items-center">
                         <h3 className="text-white text-3xl md:text-4xl capitalize mb-6">
@@ -51,9 +79,9 @@ export default function Footer() {
                     </div>
 
                     {/* Center: Logo */}
-                    <div className="flex ">
+                    <div className="flex md:ml-16">
                         <img
-                            className="w-15 ml-10 h-15 scale-105"
+                            className="w-15 h-15 scale-105"
                             src="/assets/Images/Home/Footer/logo.png"
                             alt="Infotsav Logo"
                         />
@@ -66,12 +94,36 @@ export default function Footer() {
                         </h3>
                         <div className="space-y-2 text-white text-base w-full ">
                             <div className="flex gap-4 w-full ">
-                                <span>Samyak Choudhary:</span>
-                                <span>9999999999</span>
+                                <span>Samyak Choudhary :</span>
+                                <span
+                                    onClick={() =>
+                                        copyToClipboard('+91 9993148060')
+                                    }
+                                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200 relative"
+                                    title="Click to copy">
+                                    +91 9993148060
+                                    {copiedNumber === '+91 9993148060' && (
+                                        <span className="absolute -top-8 left-0 bg-green-600 text-white text-xs px-2 py-1 rounded">
+                                            Copied!
+                                        </span>
+                                    )}
+                                </span>
                             </div>
-                            <div className="flex gap-4 ">
-                                <span>Shashank Gour:</span>
-                                <span>9999999999</span>
+                            <div className="flex gap-4 w-full justify-between ">
+                                <span>Shashank Gour :</span>
+                                <span
+                                    onClick={() =>
+                                        copyToClipboard('+91 9303332369')
+                                    }
+                                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200 relative"
+                                    title="Click to copy">
+                                    +91 9303332369
+                                    {copiedNumber === '+91 9303332369' && (
+                                        <span className="absolute -top-8 left-0 bg-green-600 text-white text-xs px-2 py-1 rounded">
+                                            Copied!
+                                        </span>
+                                    )}
+                                </span>
                             </div>
                         </div>
                     </div>
