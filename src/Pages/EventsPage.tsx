@@ -1,45 +1,27 @@
+import { useState } from "react";
+import technicalEvents from "@/Constants/Events/TechnicalEvents.json";
+import managerialEvents from "@/Constants/Events/ManagerialEvents.json";
+import roboticsEvents from "@/Constants/Events/RoboticsEvents.json";
 import Domain from "@/Components/EventsPage/Domain";
 import FeaturedEvents from "@/Components/EventsPage/FeaturedEvents";
 import Hero from "@/Components/EventsPage/Hero-Events";
 import Footer from "@/Components/Other/Footer";
 
-import { useState } from "react";
+// Extend the Window interface to include __DOMAIN_EVENTS__
+declare global {
+  interface Window {
+    __DOMAIN_EVENTS__?: any;
+  }
+}
+
+const domainJsons = [
+  { domainName: "Managerial Events", events: managerialEvents },
+  { domainName: "Robotics Events", events: roboticsEvents },
+];
 
 const EventsPage = () => {
-  const data = [
-    {
-      domainName: "Technical Events",
-      cards: [
-        { title: "Hackathon", description: "A 24-hour coding competition." },
-        { title: "Code Debug", description: "Find and fix bugs in the code." },
-        {
-          title: "Web Design",
-          description: "Create a beautiful and functional website.",
-        },
-      ],
-    },
-    {
-      domainName: "Gaming Events",
-      cards: [
-        { title: "Valorant", description: "5v5 tactical shooter tournament." },
-        { title: "FIFA", description: "Virtual football championship." },
-        { title: "Chess", description: "A classic test of strategy." },
-      ],
-    },
-    {
-      domainName: "Creative Events",
-      cards: [
-        { title: "Photography", description: "Capture the best moments." },
-        {
-          title: "Short Film",
-          description: "Tell a story in under 5 minutes.",
-        },
-      ],
-    },
-  ];
-
   // State for each domain's current card index
-  const [domainIndices, setDomainIndices] = useState(data.map(() => 0));
+  const [domainIndices, setDomainIndices] = useState(domainJsons.map(() => 0));
 
   // Setter for a specific domain index
   const setDomainIndex = (domainIdx: number, cardIdx: number) => {
@@ -50,17 +32,26 @@ const EventsPage = () => {
     });
   };
 
+  // Expose domain events for navigation
+  // @ts-ignore
+  if (typeof window !== "undefined") {
+    window.__DOMAIN_EVENTS__ = domainJsons.map((domain) => domain.events);
+  }
+
   return (
     <div>
       <Hero />
       <div className="h-auto w-full py-10 md:py-30 px-[8vw] space-y-15 md:space-y-40">
         <FeaturedEvents setDomainIndex={setDomainIndex} />
 
-        {data.map((domain, idx) => (
+        {domainJsons.map((domain, idx) => (
           <Domain
             key={idx}
             domainName={domain.domainName}
-            cards={domain.cards}
+            cards={domain.events.map((event: any) => ({
+              title: event.name,
+              description: event.about,
+            }))}
             currentIndex={domainIndices[idx]}
             setCurrentIndex={(cardIdx: number) => setDomainIndex(idx, cardIdx)}
           />

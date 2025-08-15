@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ title, description, id, onRegister }) => {
   return (
     <div
       id={id}
-      className="bg-gray-800 shadow-2xl rounded-2xl overflow-hidden h-full w-full"
+      className="bg-gray-800 shadow-2xl rounded-2xl overflow-hidden h-full w-full transition-transform duration-300 ease-in-out hover:scale-105"
     >
       {/* Upper half - Image placeholder (using color for now) */}
       <div className="h-2/5 sm:h-1/2 w-full bg-teal-600 flex items-center justify-center">
@@ -23,9 +23,18 @@ const Card: React.FC<CardProps> = ({ title, description, id, onRegister }) => {
         <h3 className="text-xl font-bold text-teal-300 font-cattedrale">
           {title}
         </h3>
-        <p className="mt-2 text-gray-300 text-xs sm:text-sm sm:line-clamp-3 flex-grow">
-          {description}
-        </p>
+        <div
+          className="mt-2 flex-grow overflow-y-auto max-h-[7.5em] pr-2 rounded-md bg-gray-900/60"
+          style={{
+            scrollbarWidth: "none", // Firefox
+            msOverflowStyle: "none", // IE/Edge
+          }}
+        >
+          <style>{`
+            .hide-scrollbar::-webkit-scrollbar { display: none; }
+          `}</style>
+          <div className="hide-scrollbar text-gray-300 text-xs sm:text-sm p-2">{description}</div>
+        </div>
         <button
           className="mt-4 px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg font-semibold transition-colors duration-300"
           onClick={onRegister}

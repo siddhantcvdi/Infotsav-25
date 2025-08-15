@@ -1,36 +1,18 @@
+
 import React, { useState, useEffect, useRef } from "react";
+import flagshipEvents from "@/Constants/Events/FlagshipEvents.json";
 
-const slides = [
-  {
-    id: 1,
-    title: "Hackathon",
-    description: "A 24-hour coding challenge.",
-    leftColor: "bg-green-800",
-    rightColor: "bg-red-800",
-    domain: "Technical Events",
-    cardIdx: 0,
-  },
-  {
-    id: 2,
-    title: "Valorant Tournament",
-    description: "Compete in a 5v5 tactical shooter.",
-    leftColor: "bg-blue-800",
-    rightColor: "bg-yellow-800",
-    domain: "Gaming Events",
-    cardIdx: 0,
-  },
-  {
-    id: 3,
-    title: "Photography Contest",
-    description: "Capture and share your best shots.",
-    leftColor: "bg-purple-800",
-    rightColor: "bg-pink-800",
-    domain: "Creative Events",
-    cardIdx: 0,
-  },
-];
 
-// Create a new array with the first slide cloned at the end
+// Prepare slides from FlagshipEvents.json
+const slides = flagshipEvents.map((event: any) => ({
+  id: event.id,
+  name: event.name,
+  about: event.about,
+  img: event.img,
+  contact: event.contact,
+  domain: event.category || "", // Use category as domain
+}));
+
 const carouselSlides = [...slides, slides[0]];
 
 interface FeaturedEventsProps {
@@ -83,22 +65,33 @@ const FeaturedEvents: React.FC<FeaturedEventsProps> = ({ setDomainIndex }) => {
     }
   }, [currentIndex, isTransitioning]);
 
-  // Scroll to the corresponding card in the domain carousel and set focus
-  const handleSlideClick = (slide: (typeof slides)[0]) => {
-    // Find domain index
-    const domainMap = ["Technical Events", "Gaming Events", "Creative Events"];
-    const domainIdx = domainMap.findIndex((d) => d === slide.domain);
+  // Navigation: scroll to corresponding event card in domain carousel
+  const handleSlideClick = (slide: typeof slides[0]) => {
+    // Map category to domain index (must match domainJsons order in EventsPage)
+    const domainMap = ["Managerial Events", "Robotics Events"];
+    // Find domain index by matching full domain name
+    const domainIdx = domainMap.findIndex((d) => d.toLowerCase().includes(slide.domain.toLowerCase()));
     if (domainIdx !== -1) {
-      setDomainIndex(domainIdx, slide.cardIdx);
+      // Get domain events from window (since FeaturedEvents doesn't have direct access)
+      let domainEvents = [];
+      try {
+        // @ts-ignore
+        domainEvents = window.__DOMAIN_EVENTS__?.[domainIdx] || [];
+      } catch {}
+      // Find card index by event name
+      let cardIdx = 0;
+      if (domainEvents.length) {
+        cardIdx = domainEvents.findIndex((e: any) => e.name === slide.name);
+        if (cardIdx === -1) cardIdx = 0;
+      }
+      setDomainIndex(domainIdx, cardIdx);
       setTimeout(() => {
-        const cardId = `${slide.domain
-          .replace(/\s+/g, "-")
-          .toLowerCase()}-card-${slide.cardIdx}`;
+        const cardId = `${domainMap[domainIdx].replace(/\s+/g, "-").toLowerCase()}-card-${cardIdx}`;
         const cardElement = document.getElementById(cardId);
         if (cardElement) {
           cardElement.scrollIntoView({ behavior: "smooth", block: "center" });
         }
-      }, 100); // Wait for carousel to update
+      }, 100);
     }
   };
 
@@ -108,7 +101,11 @@ const FeaturedEvents: React.FC<FeaturedEventsProps> = ({ setDomainIndex }) => {
         Featured Events
       </h2>
 
-      <div className="relative w-full h-[30vw] min-h-[250px] overflow-hidden rounded-md">
+      <div
+        className="relative w-[70vw] max-w-[900px] h-[36vw] min-h-[250px] max-h-[600px] overflow-hidden rounded-2xl mx-auto"
+        onMouseEnter={() => { stopAutoSlide(); }}
+        onMouseLeave={() => { startAutoSlide(); }}
+      >
         <div
           className={`flex h-full ${
             isTransitioning
@@ -117,29 +114,46 @@ const FeaturedEvents: React.FC<FeaturedEventsProps> = ({ setDomainIndex }) => {
           }`}
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {/* Map over the new array with the cloned slide */}
           {carouselSlides.map((slide, index) => (
             <div
               key={index}
-              className="flex w-full h-full flex-shrink-0 cursor-pointer"
+              className="relative w-full h-full flex-shrink-0 cursor-pointer group transition-transform duration-500 ease-in-out hover:z-20 hover:scale-105"
               onClick={() => handleSlideClick(slide)}
             >
+              {/* Full background image */}
               <div
-                className={`h-full w-3/5 ${slide.leftColor} flex items-center justify-center`}
-              >
-                <h3 className="text-white text-4xl font-bold">{slide.title}</h3>
-              </div>
-              <div
-                className={`h-full w-2/5 ${slide.rightColor} flex items-center justify-center p-4`}
-              >
-                <p className="text-white text-lg">{slide.description}</p>
+                className="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+                style={{ backgroundImage: `url(${slide.img})` }}
+              />
+              {/* Overlay for readability: always visible on mobile, hover on desktop */}
+              <div className="absolute inset-0 w-full h-full z-10 transition-opacity duration-300 bg-gradient-to-br from-black/70 via-teal-900/60 to-gray-900/70 opacity-100 sm:opacity-0 sm:group-hover:opacity-100" />
+              {/* Info section: always visible on mobile, hover on desktop */}
+              <div className="absolute inset-0 z-20 h-full w-full flex flex-col justify-center items-start p-4 sm:p-10 gap-4 transition-opacity duration-300 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
+                {/* Mask for text background on mobile */}
+                <div className="absolute inset-0 z-[-1] bg-black/40 rounded-2xl sm:bg-transparent" />
+                <h3 className="text-white text-2xl sm:text-4xl font-bold font-cattedrale mb-2 drop-shadow-lg">{slide.name}</h3>
+                <div className="text-gray-200 text-base sm:text-lg mb-2 drop-shadow-md w-full overflow-y-auto h-[7em] sm:h-[12em] rounded-md bg-gray-900/60 flex items-start" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
+                  <div className="hide-scrollbar p-3">
+                    {slide.about}
+                    {slide.contact && (
+                      <div className="mt-3 flex flex-col gap-1">
+                        {slide.contact.map((c: any, i: number) => (
+                          <span key={i} className="text-sm text-teal-300 drop-shadow">
+                            {c.name} | {c.phone} | {c.email}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
       {/* Navigation Dots */}
-      <div className="flex justify-center items-center mt-4 space-x-3">
+  <div className="flex justify-center items-center mt-1 space-x-3">
         {slides.map((_, idx) => (
           <button
             key={idx}
