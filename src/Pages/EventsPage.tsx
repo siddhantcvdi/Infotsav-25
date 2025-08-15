@@ -3,7 +3,7 @@ import FeaturedEvents from "@/Components/EventsPage/FeaturedEvents";
 import Hero from "@/Components/EventsPage/Hero-Events";
 import Footer from "@/Components/Other/Footer";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 const EventsPage = () => {
   const data = [
