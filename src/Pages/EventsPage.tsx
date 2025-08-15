@@ -3,42 +3,67 @@ import FeaturedEvents from "@/Components/EventsPage/FeaturedEvents";
 import Main from "@/Components/EventsPage/Main";
 import Footer from "@/Components/Other/Footer";
 
+import React, { useState } from "react";
+
 const EventsPage = () => {
   const data = [
     {
-      domainName: "Domain A",
+      domainName: "Technical Events",
       cards: [
-        { title: "Event 1", description: "Description 1" },
-        { title: "Event 2", description: "Description 2" },
-        { title: "Event 3", description: "Description 3" },
+        { title: "Hackathon", description: "A 24-hour coding competition." },
+        { title: "Code Debug", description: "Find and fix bugs in the code." },
+        {
+          title: "Web Design",
+          description: "Create a beautiful and functional website.",
+        },
       ],
     },
     {
-      domainName: "Domain B",
+      domainName: "Gaming Events",
       cards: [
-        { title: "Event 1", description: "Description 1" },
-        { title: "Event 2", description: "Description 2" },
-        { title: "Event 3", description: "Description 3" },
+        { title: "Valorant", description: "5v5 tactical shooter tournament." },
+        { title: "FIFA", description: "Virtual football championship." },
+        { title: "Chess", description: "A classic test of strategy." },
       ],
     },
     {
-      domainName: "Domain C",
+      domainName: "Creative Events",
       cards: [
-        { title: "Event 1", description: "Description 1" },
-        { title: "Event 2", description: "Description 2" },
-        { title: "Event 3", description: "Description 3" },
+        { title: "Photography", description: "Capture the best moments." },
+        {
+          title: "Short Film",
+          description: "Tell a story in under 5 minutes.",
+        },
       ],
     },
   ];
 
+  // State for each domain's current card index
+  const [domainIndices, setDomainIndices] = useState(data.map(() => 0));
+
+  // Setter for a specific domain index
+  const setDomainIndex = (domainIdx: number, cardIdx: number) => {
+    setDomainIndices((prev) => {
+      const updated = [...prev];
+      updated[domainIdx] = cardIdx;
+      return updated;
+    });
+  };
+
   return (
     <div>
       <Main />
-      <div className="h-auto w-full py-40 px-30 space-y-40">
-        <FeaturedEvents />
+      <div className="h-auto w-full py-10 md:py-30 px-[8vw] space-y-15 md:space-y-40">
+        <FeaturedEvents setDomainIndex={setDomainIndex} />
 
         {data.map((domain, idx) => (
-          <Domain key={idx} {...domain} />
+          <Domain
+            key={idx}
+            domainName={domain.domainName}
+            cards={domain.cards}
+            currentIndex={domainIndices[idx]}
+            setCurrentIndex={(cardIdx: number) => setDomainIndex(idx, cardIdx)}
+          />
         ))}
       </div>
       <Footer />
