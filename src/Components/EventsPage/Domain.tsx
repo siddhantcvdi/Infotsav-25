@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Card from "./Card";
 import ArrowNavButton from "./ArrowNavButton";
 
@@ -21,15 +21,65 @@ const Domain: React.FC<DomainProps> = ({
   setCurrentIndex,
 }) => {
   const [direction, setDirection] = useState<"left" | "right">("right");
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const autoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-scroll function
+  const autoScroll = () => {
+    setDirection("right");
+    setHasInteracted(true);
+    setCurrentIndex((currentIndex + 1) % cards.length);
+  };
+
+  // Start auto-scroll timer
+  const startAutoScroll = () => {
+    if (autoScrollIntervalRef.current) {
+      clearInterval(autoScrollIntervalRef.current);
+    }
+    autoScrollIntervalRef.current = setInterval(autoScroll, 10000); // 10 seconds
+  };
+
+  // Stop auto-scroll timer
+  const stopAutoScroll = () => {
+    if (autoScrollIntervalRef.current) {
+      clearInterval(autoScrollIntervalRef.current);
+      autoScrollIntervalRef.current = null;
+    }
+  };
+
+  // Reset auto-scroll timer (called on manual navigation)
+  const resetAutoScroll = () => {
+    stopAutoScroll();
+    startAutoScroll();
+  };
+
+  // Initialize auto-scroll on mount
+  useEffect(() => {
+    startAutoScroll();
+    
+    // Cleanup on unmount
+    return () => {
+      stopAutoScroll();
+    };
+  }, []);
+
+  // Restart auto-scroll when currentIndex changes
+  useEffect(() => {
+    startAutoScroll();
+  }, [currentIndex]);
 
   const goToPrevious = () => {
-    setDirection("left");
+    setDirection("right");
+    setHasInteracted(true);
     setCurrentIndex(currentIndex === 0 ? cards.length - 1 : currentIndex - 1);
+    resetAutoScroll(); // Reset timer on manual navigation
   };
 
   const goToNext = () => {
-    setDirection("right");
+    setDirection("left");
+    setHasInteracted(true);
     setCurrentIndex(currentIndex === cards.length - 1 ? 0 : currentIndex + 1);
+    resetAutoScroll(); // Reset timer on manual navigation
   };
 
   const leftIndex = (currentIndex - 1 + cards.length) % cards.length;
@@ -45,23 +95,32 @@ const Domain: React.FC<DomainProps> = ({
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center space-y-8">
-      <h2 className="text-[5vw] text-center text-gray-200 font-cattedrale tracking-wide">
+    <div className="w-full flex flex-col justify-center items-center">
+      <h2 className="text-[5vw] text-center text-gray-200 font-cattedrale tracking-wide mb-0">
         {domainName}
       </h2>
+      <div style={{ marginTop: '-1.5rem' }} />
 
       {/* Carousel container */}
-      <div className="relative h-[500px] w-[80%] max-w-[1200px] flex justify-center items-center overflow-hidden">
-        {/* Left nav button */}
-        <div className="absolute left-4 z-10">
-          <ArrowNavButton direction="left" onClick={goToPrevious} />
+      <div className="relative h-[400px] sm:h-[520px] md:h-[600px] w-[98vw] sm:w-[90%] max-w-[1400px] flex items-center justify-center overflow-x-hidden">
+        {/* Fade overlays - hidden on mobile, narrower on sm */}
+        <div className="hidden sm:block pointer-events-none absolute left-0 top-0 h-full w-6 sm:w-16 md:w-32 z-20" style={{background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%)'}} />
+        <div className="hidden sm:block pointer-events-none absolute right-0 top-0 h-full w-6 sm:w-16 md:w-32 z-20" style={{background: 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%)'}} />
+
+        {/* Left nav button - always at side, smaller on mobile */}
+        <div className="absolute left-1 sm:left-8 top-1/2 -translate-y-1/2 z-30">
+          <div className="w-10 h-10 sm:w-12 sm:h-12">
+            <ArrowNavButton direction="left" onClick={goToPrevious} />
+          </div>
         </div>
 
         {/* Cards wrapper */}
-        <div className="flex items-center justify-center gap-8 h-full w-full">
-          {/* Left card */}
-          <div className="relative h-[400px] w-[300px] transform scale-75 opacity-50 transition-all duration-500 ease-out">
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black opacity-50"></div>
+        <div className="flex items-center justify-center h-full w-full relative">
+          {/* Left card - hide on mobile */}
+          <div
+            className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-10 h-[220px] sm:h-[320px] md:h-[420px] w-[120px] sm:w-[200px] md:w-[280px] scale-90 opacity-60 transition-all duration-500 ease-out"
+            style={{ left: '-24px' }}
+          >
             <Card
               id={getCardId(leftIndex)}
               title={cards[leftIndex].title}
@@ -70,12 +129,10 @@ const Domain: React.FC<DomainProps> = ({
             />
           </div>
 
-          {/* Center card */}
+          {/* Center card - responsive size, narrower on mobile */}
           <div
             key={currentIndex}
-            className={`h-[400px] w-[300px] transform transition-all duration-500 ease-out ${
-              direction === "right" ? "translate-x-0" : "-translate-x-0"
-            }`}
+            className={`relative z-20 h-[320px] sm:h-[380px] md:h-[480px] w-[70vw] max-w-[95vw] sm:w-[260px] md:w-[340px] mx-auto transition-all duration-500 ease-out px-2 ${hasInteracted ? (direction === "right" ? "animate-slide-in-right" : "animate-slide-in-left") : ""}`}
           >
             <Card
               id={getCardId(currentIndex)}
@@ -85,9 +142,11 @@ const Domain: React.FC<DomainProps> = ({
             />
           </div>
 
-          {/* Right card */}
-          <div className="relative h-[400px] w-[300px] transform scale-75 opacity-50 transition-all duration-500 ease-out">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-50"></div>
+          {/* Right card - hide on mobile */}
+          <div
+            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-10 h-[220px] sm:h-[320px] md:h-[420px] w-[120px] sm:w-[200px] md:w-[280px] scale-90 opacity-60 transition-all duration-500 ease-out"
+            style={{ right: '-24px' }}
+          >
             <Card
               id={getCardId(rightIndex)}
               title={cards[rightIndex].title}
@@ -97,10 +156,32 @@ const Domain: React.FC<DomainProps> = ({
           </div>
         </div>
 
-        {/* Right nav button */}
-        <div className="absolute right-4 z-10">
-          <ArrowNavButton direction="right" onClick={goToNext} />
+        {/* Right nav button - always at side, smaller on mobile */}
+        <div className="absolute right-5 sm:right-8 top-1/2 -translate-y-1/2 z-30">
+          <div className="w-10 h-10 sm:w-12 sm:h-12">
+            <ArrowNavButton direction="right" onClick={goToNext} />
+          </div>
         </div>
+      </div>
+      {/* Navigation Dots */}
+      <div className="flex justify-center items-center -mt-2 space-x-3">
+        {cards.map((_, idx) => (
+          <button
+            key={idx}
+            className={`w-3 h-3 rounded-full focus:outline-none transition-all duration-300 border-2 border-white ${
+              (currentIndex === idx)
+                ? "bg-white scale-110 shadow"
+                : "bg-gray-400 opacity-60"
+            }`}
+            onClick={() => {
+              setDirection(idx < currentIndex ? "right" : "left");
+              setHasInteracted(true);
+              setCurrentIndex(idx);
+              resetAutoScroll();
+            }}
+            aria-label={`Go to card ${idx + 1}`}
+          />
+        ))}
       </div>
     </div>
   );

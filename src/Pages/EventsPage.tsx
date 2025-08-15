@@ -1,6 +1,6 @@
 import Domain from "@/Components/EventsPage/Domain";
 import FeaturedEvents from "@/Components/EventsPage/FeaturedEvents";
-import Main from "@/Components/EventsPage/Main";
+import Hero from "@/Components/EventsPage/Hero-Events";
 import Footer from "@/Components/Other/Footer";
 
 import React, { useState } from "react";
@@ -52,7 +52,7 @@ const EventsPage = () => {
 
   return (
     <div>
-      <Main />
+      <Hero />
       <div className="h-auto w-full py-10 md:py-30 px-[8vw] space-y-15 md:space-y-40">
         <FeaturedEvents setDomainIndex={setDomainIndex} />
 

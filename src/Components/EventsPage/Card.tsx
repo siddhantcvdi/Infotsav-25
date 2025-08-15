@@ -11,19 +11,19 @@ const Card: React.FC<CardProps> = ({ title, description, id, onRegister }) => {
   return (
     <div
       id={id}
-      className="bg-gray-800 shadow-2xl rounded-2xl overflow-hidden h-[400px] w-full"
+      className="bg-gray-800 shadow-2xl rounded-2xl overflow-hidden h-full w-full"
     >
       {/* Upper half - Image placeholder (using color for now) */}
-      <div className="h-1/2 w-full bg-teal-600 flex items-center justify-center">
+      <div className="h-2/5 sm:h-1/2 w-full bg-teal-600 flex items-center justify-center">
         {/* You can replace this div with an actual image later */}
       </div>
 
       {/* Lower half - Content */}
-      <div className="h-1/2 p-6 flex flex-col">
+      <div className="h-3/5 sm:h-1/2 p-4 sm:p-6 flex flex-col">
         <h3 className="text-xl font-bold text-teal-300 font-cattedrale">
           {title}
         </h3>
-        <p className="mt-2 text-gray-300 text-sm line-clamp-3 flex-grow">
+        <p className="mt-2 text-gray-300 text-xs sm:text-sm sm:line-clamp-3 flex-grow">
           {description}
         </p>
         <button

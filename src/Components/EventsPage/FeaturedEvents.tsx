@@ -138,6 +138,24 @@ const FeaturedEvents: React.FC<FeaturedEventsProps> = ({ setDomainIndex }) => {
           ))}
         </div>
       </div>
+      {/* Navigation Dots */}
+      <div className="flex justify-center items-center mt-4 space-x-3">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            className={`w-3 h-3 rounded-full focus:outline-none transition-all duration-300 border-2 border-white ${
+              (currentIndex === idx || (currentIndex === slides.length && idx === 0))
+                ? "bg-white scale-110 shadow"
+                : "bg-gray-400 opacity-60"
+            }`}
+            onClick={() => {
+              setIsTransitioning(true);
+              setCurrentIndex(idx);
+            }}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
     </div>
   );
 };
